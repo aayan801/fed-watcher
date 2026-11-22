@@ -24,8 +24,12 @@ BOILERPLATE = re.compile(
     re.IGNORECASE,
 )
 
+# link back from each footnote in the minutes
+RETURN_LINK = re.compile(r"\s*Return to text$")
+
 PATTERNS = {
-    "statement": re.compile(r"/newsevents/pressreleases/monetary(\d{8})a\.htm"),
+    # policy statements are linked as "HTML"; other releases (e.g. the 2025-08-22 framework review) by title
+    "statement": re.compile(r'/newsevents/pressreleases/monetary(\d{8})a\.htm(?=">HTML<)'),
     "minutes": re.compile(r"/monetarypolicy/fomcminutes(\d{8})\.htm"),
 }
 
@@ -48,6 +52,8 @@ def extract_text(html: str) -> str:
     paras = [p.get_text(" ", strip=True) for p in body.find_all(["p", "li"])]
     paras = [re.sub(r"\s+", " ", p) for p in paras]
     paras = [p for p in paras if len(p.split()) >= 5 and not BOILERPLATE.match(p)]
+    # clean after the word-count filter, otherwise short footnotes would be dropped
+    paras = [RETURN_LINK.sub("", p.replace("\N{SOFT HYPHEN}", "")) for p in paras]
     return "\n\n".join(paras)
 
 
