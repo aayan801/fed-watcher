@@ -24,6 +24,13 @@ BOILERPLATE = re.compile(
     re.IGNORECASE,
 )
 
+# characters that look normal (or invisible) but break word matching
+CHAR_FIXES = str.maketrans({
+    "\N{SOFT HYPHEN}": "",
+    "\N{ZERO WIDTH JOINER}": "",
+    "\N{NON-BREAKING HYPHEN}": "-",
+})
+
 # link back from each footnote in the minutes
 RETURN_LINK = re.compile(r"\s*Return to text$")
 
@@ -53,7 +60,7 @@ def extract_text(html: str) -> str:
     paras = [re.sub(r"\s+", " ", p) for p in paras]
     paras = [p for p in paras if len(p.split()) >= 5 and not BOILERPLATE.match(p)]
     # clean after the word-count filter, otherwise short footnotes would be dropped
-    paras = [RETURN_LINK.sub("", p.replace("\N{SOFT HYPHEN}", "")) for p in paras]
+    paras = [RETURN_LINK.sub("", p.translate(CHAR_FIXES)) for p in paras]
     return "\n\n".join(paras)
 
 
