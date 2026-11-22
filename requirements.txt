@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+pytest
+# added on Wed (retrieval):
+# sentence-transformers
+# faiss-cpu
+# rank-bm25
