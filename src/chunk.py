@@ -24,7 +24,39 @@ def chunk_document(doc: dict, max_words: int = 200, overlap: int = 40) -> list[d
               "text": <chunk text, words joined by single spaces>}
       5. An empty or whitespace-only text returns [].
     """
-    raise NotImplementedError("your turn")
+    paragraphs = [p.split() for p in doc["text"].split("\n\n") if p.strip()]   # NEW
+    if not paragraphs:                                                          # NEW
+        return []
+
+    # A paragraph longer than max_words is cut into max_words-sized pieces;
+    # after that, every piece fits in a chunk on its own.
+    pieces = []
+    for words in paragraphs:
+        for start in range(0, len(words), max_words):
+            pieces.append(words[start:start + max_words])
+
+    # Greedy packing: add pieces to the current chunk until the next one would not fit.
+    chunks, current = [], []
+    for piece in pieces:
+        if current and len(current) + len(piece) > max_words:
+            chunks.append(current)
+            current = []
+        current = current + piece
+    if current:
+        chunks.append(current)  # don't lose the last chunk
+
+    # Overlap: each chunk after the first starts with the last `overlap` words of the previous one.
+    # (Guard overlap > 0: words[-0:] would return the WHOLE list, not an empty one.)
+    texts = [chunks[0]]
+    for prev, chunk in zip(chunks, chunks[1:]):
+        carried = prev[-overlap:] if overlap > 0 else []
+        texts.append(carried + chunk)
+
+    return [
+        {"chunk_id": f"{doc['doc_id']}#{i}", "doc_id": doc["doc_id"], "kind": doc["kind"],
+         "date": doc["date"], "url": doc["url"], "text": " ".join(words)}
+        for i, words in enumerate(texts)
+    ]
 
 
 def chunk_all(docs: list[dict], **kw) -> list[dict]:
