@@ -1,47 +1,50 @@
 {
+ "settings": {
+  "model": "BAAI/bge-small-en-v1.5"
+ },
  "k": 5,
  "n_questions": 40,
  "overall": {
   "bm25": 0.825,
-  "embeddings": 0.375,
-  "hybrid": 0.65
+  "embeddings": 0.625,
+  "hybrid": 0.825
  },
  "by_type": {
   "keyword": {
    "n": 12,
    "bm25": 1.0,
-   "embeddings": 0.5833333333333334,
-   "hybrid": 0.8333333333333334
+   "embeddings": 0.75,
+   "hybrid": 0.9166666666666666
   },
   "paraphrase": {
    "n": 12,
    "bm25": 0.5,
-   "embeddings": 0.25,
-   "hybrid": 0.5
+   "embeddings": 0.5833333333333334,
+   "hybrid": 0.6666666666666666
   },
   "fraction": {
    "n": 5,
    "bm25": 0.8,
-   "embeddings": 0.4,
-   "hybrid": 0.6
+   "embeddings": 0.8,
+   "hybrid": 0.8
   },
   "dash": {
    "n": 5,
    "bm25": 1.0,
-   "embeddings": 0.0,
-   "hybrid": 0.4
+   "embeddings": 0.6,
+   "hybrid": 1.0
   },
   "accent": {
    "n": 4,
    "bm25": 1.0,
-   "embeddings": 0.5,
-   "hybrid": 1.0
+   "embeddings": 0.25,
+   "hybrid": 0.75
   },
   "date": {
    "n": 2,
    "bm25": 1.0,
    "embeddings": 0.5,
-   "hybrid": 0.5
+   "hybrid": 1.0
   }
  },
  "questions": [
@@ -70,9 +73,9 @@
     "retrieved": [
      "minutes_20230322",
      "minutes_20230322",
+     "minutes_20260617",
      "minutes_20230322",
-     "minutes_20260729",
-     "minutes_20230322"
+     "minutes_20260128"
     ]
    },
    "hybrid": {
@@ -82,7 +85,7 @@
      "minutes_20230322",
      "minutes_20230322",
      "minutes_20230322",
-     "minutes_20230322"
+     "minutes_20230726"
     ]
    }
   },
@@ -107,11 +110,11 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
+     "minutes_20211103",
+     "minutes_20211103",
      "statement_20211103",
      "minutes_20211103",
-     "statement_20250319",
-     "minutes_20250319",
-     "minutes_20211215"
+     "minutes_20210616"
     ]
    },
    "hybrid": {
@@ -120,8 +123,8 @@
      "minutes_20211103",
      "statement_20211103",
      "minutes_20211103",
-     "minutes_20211215",
-     "minutes_20211215"
+     "minutes_20211103",
+     "minutes_20211103"
     ]
    }
   },
@@ -146,11 +149,11 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20211103",
-     "minutes_20251029",
-     "minutes_20220316",
-     "minutes_20231101",
-     "minutes_20230920"
+     "minutes_20220504",
+     "minutes_20240320",
+     "minutes_20220504",
+     "minutes_20220504",
+     "minutes_20251029"
     ]
    },
    "hybrid": {
@@ -158,9 +161,9 @@
     "retrieved": [
      "minutes_20251029",
      "minutes_20240320",
-     "minutes_20220316",
      "minutes_20220504",
-     "minutes_20220126"
+     "minutes_20251029",
+     "minutes_20220921"
     ]
    }
   },
@@ -185,21 +188,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20240501",
+     "minutes_20220615",
      "minutes_20220504",
-     "minutes_20220316",
-     "minutes_20220316",
-     "minutes_20220727"
+     "minutes_20220921",
+     "minutes_20220504",
+     "minutes_20240731"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20240501",
      "minutes_20220504",
      "minutes_20240501",
      "minutes_20250319",
-     "minutes_20240501"
+     "minutes_20220504",
+     "minutes_20240612"
     ]
    }
   },
@@ -224,20 +227,20 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20220316",
-     "minutes_20220316",
+     "minutes_20221214",
      "minutes_20230201",
      "minutes_20220316",
-     "minutes_20220504"
+     "minutes_20220316",
+     "minutes_20220615"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
+     "minutes_20220615",
+     "minutes_20220316",
      "minutes_20220316",
      "minutes_20220615",
-     "minutes_20220504",
-     "minutes_20220316",
      "minutes_20220316"
     ]
    }
@@ -263,19 +266,19 @@
     "hit": true,
     "retrieved": [
      "minutes_20220316",
+     "minutes_20220316",
      "minutes_20220126",
      "minutes_20220126",
-     "minutes_20211215",
-     "minutes_20220316"
+     "minutes_20211215"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
      "minutes_20220316",
-     "minutes_20220126",
-     "minutes_20220316",
      "minutes_20211215",
+     "minutes_20220316",
+     "minutes_20220126",
      "minutes_20220126"
     ]
    }
@@ -302,9 +305,9 @@
     "retrieved": [
      "minutes_20261028",
      "minutes_20261028",
-     "minutes_20260729",
-     "minutes_20251210",
-     "minutes_20260729"
+     "minutes_20260128",
+     "minutes_20261028",
+     "minutes_20260128"
     ]
    },
    "hybrid": {
@@ -312,9 +315,9 @@
     "retrieved": [
      "minutes_20261028",
      "minutes_20261028",
-     "minutes_20251029",
      "minutes_20261028",
-     "minutes_20260916"
+     "minutes_20251029",
+     "minutes_20261028"
     ]
    }
   },
@@ -337,23 +340,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "statement_20211103",
-     "minutes_20211103",
-     "statement_20250319",
-     "minutes_20250319",
-     "statement_20240501"
+     "statement_20220504",
+     "minutes_20220504",
+     "minutes_20220504",
+     "minutes_20220504",
+     "minutes_20211103"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
+     "statement_20220504",
      "minutes_20240501",
      "statement_20240501",
-     "statement_20250319",
-     "minutes_20250319",
-     "statement_20211103"
+     "minutes_20211103",
+     "minutes_20250319"
     ]
    }
   },
@@ -376,23 +379,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20250319",
-     "minutes_20250730",
-     "minutes_20251210",
-     "minutes_20250129",
-     "minutes_20221102"
+     "minutes_20220615",
+     "minutes_20220316",
+     "statement_20221102",
+     "statement_20220921",
+     "statement_20220727"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
+     "minutes_20221102",
      "minutes_20220316",
-     "minutes_20220615",
      "minutes_20220504",
-     "minutes_20220126",
-     "minutes_20220727"
+     "statement_20221214",
+     "statement_20221102"
     ]
    }
   },
@@ -418,20 +421,20 @@
     "hit": false,
     "retrieved": [
      "minutes_20240320",
-     "minutes_20250129",
-     "minutes_20211215",
      "minutes_20220126",
-     "minutes_20211103"
+     "minutes_20220316",
+     "minutes_20231213",
+     "minutes_20220504"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
+     "minutes_20251210",
      "minutes_20240320",
-     "minutes_20251210",
-     "minutes_20220316",
-     "minutes_20251210",
-     "minutes_20220316"
+     "minutes_20260729",
+     "minutes_20220504",
+     "minutes_20251210"
     ]
    }
   },
@@ -455,21 +458,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20211103",
-     "minutes_20230726",
-     "minutes_20210728",
-     "minutes_20251029",
+     "minutes_20210616",
+     "minutes_20250319",
+     "minutes_20250319",
+     "minutes_20260429",
      "minutes_20241218"
     ]
    },
    "hybrid": {
     "hit": false,
     "retrieved": [
-     "minutes_20211103",
      "minutes_20241218",
-     "minutes_20211215",
-     "minutes_20210728",
-     "minutes_20250319"
+     "minutes_20250319",
+     "minutes_20211103",
+     "minutes_20250319",
+     "minutes_20210728"
     ]
    }
   },
@@ -494,21 +497,21 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20260617",
      "minutes_20260318",
      "minutes_20260318",
      "minutes_20260318",
-     "minutes_20260318"
+     "minutes_20260429",
+     "minutes_20260429"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20260617",
      "minutes_20260318",
      "minutes_20260318",
-     "minutes_20260318",
-     "minutes_20260729"
+     "minutes_20260429",
+     "minutes_20260729",
+     "minutes_20260318"
     ]
    }
   },
@@ -533,21 +536,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20230614",
-     "minutes_20220615",
+     "minutes_20210922",
      "minutes_20231213",
-     "minutes_20210728",
-     "minutes_20241218"
+     "minutes_20221102",
+     "minutes_20210428",
+     "minutes_20210127"
     ]
    },
    "hybrid": {
-    "hit": true,
+    "hit": false,
     "retrieved": [
-     "minutes_20220921",
+     "minutes_20210127",
      "minutes_20250917",
-     "minutes_20211103",
-     "minutes_20230614",
-     "minutes_20240320"
+     "minutes_20240320",
+     "minutes_20240320",
+     "minutes_20210922"
     ]
    }
   },
@@ -570,13 +573,13 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20220504",
      "minutes_20240320",
-     "minutes_20231101",
-     "minutes_20211215",
-     "minutes_20240501"
+     "minutes_20220504",
+     "minutes_20251029",
+     "minutes_20220504",
+     "minutes_20220126"
     ]
    },
    "hybrid": {
@@ -584,9 +587,9 @@
     "retrieved": [
      "minutes_20240320",
      "minutes_20220504",
+     "minutes_20251029",
      "minutes_20231213",
-     "minutes_20231101",
-     "minutes_20251029"
+     "minutes_20220316"
     ]
    }
   },
@@ -608,23 +611,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20260318",
-     "minutes_20231213",
-     "minutes_20220921",
-     "minutes_20220727",
-     "minutes_20260318"
+     "minutes_20230322",
+     "minutes_20251029",
+     "minutes_20251210",
+     "minutes_20220615",
+     "minutes_20231213"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20251210",
-     "minutes_20250507",
-     "minutes_20221214",
-     "minutes_20260318",
-     "minutes_20221214"
+     "minutes_20230503",
+     "minutes_20230322",
+     "minutes_20230503",
+     "minutes_20220316"
     ]
    }
   },
@@ -649,21 +652,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20251210",
      "minutes_20240612",
-     "minutes_20240731",
-     "minutes_20260916",
-     "minutes_20250917"
+     "minutes_20250917",
+     "minutes_20241107",
+     "minutes_20241218",
+     "minutes_20251210"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
+     "minutes_20250917",
      "minutes_20240731",
      "minutes_20240918",
-     "minutes_20240918",
-     "minutes_20220727",
-     "minutes_20241107"
+     "minutes_20230503",
+     "minutes_20240918"
     ]
    }
   },
@@ -686,23 +689,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
-    "retrieved": [
-     "minutes_20240612",
-     "minutes_20231213",
-     "minutes_20251210",
-     "minutes_20211103",
-     "minutes_20240501"
-    ]
-   },
-   "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20240612",
      "minutes_20230201",
-     "minutes_20220126",
-     "minutes_20210922",
-     "minutes_20220316"
+     "minutes_20241218",
+     "minutes_20241218",
+     "minutes_20210728"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20241218",
+     "minutes_20240612",
+     "minutes_20241218",
+     "minutes_20230201",
+     "minutes_20241218"
     ]
    }
   },
@@ -726,21 +729,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20210616",
+     "minutes_20250730",
+     "minutes_20260916",
+     "minutes_20211103",
      "minutes_20220316",
-     "minutes_20250507",
-     "minutes_20260128",
-     "minutes_20250618"
+     "minutes_20251029"
     ]
    },
    "hybrid": {
     "hit": false,
     "retrieved": [
      "minutes_20250730",
-     "minutes_20250730",
-     "minutes_20250618",
-     "minutes_20250507",
-     "minutes_20251029"
+     "minutes_20220316",
+     "minutes_20220504",
+     "minutes_20221102",
+     "minutes_20241218"
     ]
    }
   },
@@ -762,23 +765,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20211215",
-     "minutes_20210127",
+     "minutes_20260916",
      "minutes_20230201",
-     "minutes_20231213",
-     "minutes_20240612"
+     "minutes_20251210",
+     "minutes_20230503",
+     "minutes_20230920"
     ]
    },
    "hybrid": {
     "hit": false,
     "retrieved": [
      "minutes_20230322",
-     "minutes_20251210",
-     "minutes_20221214",
-     "minutes_20210616",
-     "minutes_20230201"
+     "minutes_20230201",
+     "minutes_20230201",
+     "minutes_20220316",
+     "minutes_20220504"
     ]
    }
   },
@@ -804,8 +807,8 @@
     "retrieved": [
      "minutes_20240320",
      "minutes_20231213",
-     "minutes_20230920",
      "minutes_20220316",
+     "minutes_20240501",
      "minutes_20211215"
     ]
    },
@@ -814,9 +817,9 @@
     "retrieved": [
      "minutes_20211215",
      "minutes_20231213",
-     "minutes_20240320",
      "minutes_20240501",
-     "minutes_20211215"
+     "minutes_20240320",
+     "minutes_20220504"
     ]
    }
   },
@@ -851,21 +854,21 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20230726",
+     "minutes_20210616",
+     "minutes_20211103",
      "minutes_20210428",
      "minutes_20210127",
-     "minutes_20210616",
-     "minutes_20230201"
+     "minutes_20210922"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20210728",
+     "minutes_20210922",
      "minutes_20210428",
-     "minutes_20230726",
+     "minutes_20210728",
      "minutes_20210127",
-     "minutes_20210922"
+     "minutes_20210616"
     ]
    }
   },
@@ -889,21 +892,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20260729",
+     "minutes_20251210",
      "minutes_20260916",
-     "minutes_20260729",
-     "minutes_20260729",
-     "minutes_20260916"
+     "minutes_20251029",
+     "minutes_20261028",
+     "minutes_20261028"
     ]
    },
    "hybrid": {
     "hit": false,
     "retrieved": [
-     "minutes_20260729",
      "minutes_20260318",
-     "minutes_20241107",
      "minutes_20260729",
-     "minutes_20260617"
+     "minutes_20241107",
+     "minutes_20251029",
+     "minutes_20260729"
     ]
    }
   },
@@ -925,22 +928,22 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
+     "minutes_20211215",
+     "minutes_20210428",
+     "minutes_20210728",
      "minutes_20210616",
-     "minutes_20240731",
-     "minutes_20231101",
-     "minutes_20210922",
-     "minutes_20250129"
+     "minutes_20210616"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20260128",
-     "minutes_20250129",
      "minutes_20210428",
-     "minutes_20230322",
+     "minutes_20211215",
+     "minutes_20210616",
+     "minutes_20210728",
      "minutes_20210428"
     ]
    }
@@ -963,23 +966,23 @@
     ]
    },
    "embeddings": {
-    "hit": true,
+    "hit": false,
     "retrieved": [
-     "minutes_20250730",
-     "minutes_20220126",
-     "minutes_20210127",
-     "minutes_20240501",
-     "minutes_20251029"
+     "minutes_20211215",
+     "minutes_20210728",
+     "minutes_20210922",
+     "minutes_20260617",
+     "minutes_20210616"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
      "minutes_20210127",
-     "minutes_20250129",
+     "minutes_20260128",
+     "minutes_20260617",
      "minutes_20230201",
-     "minutes_20210317",
-     "minutes_20250730"
+     "minutes_20250129"
     ]
    }
   },
@@ -1004,11 +1007,11 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20261028",
-     "minutes_20230614",
-     "minutes_20251210",
+     "minutes_20260429",
+     "minutes_20240731",
+     "minutes_20240131",
      "minutes_20240612",
-     "minutes_20261028"
+     "minutes_20230201"
     ]
    },
    "hybrid": {
@@ -1043,11 +1046,11 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20241107",
-     "minutes_20250917",
      "minutes_20241218",
-     "minutes_20230614",
-     "minutes_20251029"
+     "minutes_20250917",
+     "minutes_20241107",
+     "minutes_20240918",
+     "minutes_20250319"
     ]
    },
    "hybrid": {
@@ -1055,9 +1058,9 @@
     "retrieved": [
      "minutes_20241218",
      "minutes_20241107",
-     "minutes_20241218",
-     "minutes_20230614",
-     "minutes_20250917"
+     "minutes_20240918",
+     "minutes_20250917",
+     "minutes_20251029"
     ]
    }
   },
@@ -1080,23 +1083,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20251210",
-     "minutes_20261028",
-     "statement_20220615",
-     "minutes_20260429",
-     "minutes_20230614"
+     "minutes_20260729",
+     "minutes_20220615",
+     "minutes_20220316",
+     "minutes_20260916"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20251210",
-     "minutes_20251029",
-     "minutes_20260429",
-     "minutes_20251210",
-     "minutes_20260729"
+     "minutes_20260729",
+     "statement_20260916",
+     "minutes_20260916",
+     "minutes_20220316"
     ]
    }
   },
@@ -1121,21 +1124,21 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20261028",
-     "minutes_20220126",
      "minutes_20230614",
-     "minutes_20230920",
-     "minutes_20220504"
+     "minutes_20240131",
+     "minutes_20260729",
+     "minutes_20251210",
+     "minutes_20240320"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
      "minutes_20230614",
-     "minutes_20250730",
      "minutes_20240501",
-     "minutes_20230920",
-     "minutes_20240131"
+     "minutes_20240320",
+     "minutes_20240131",
+     "minutes_20240731"
     ]
    }
   },
@@ -1158,23 +1161,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20260916",
-     "minutes_20261028",
-     "minutes_20250917",
-     "minutes_20220316",
-     "minutes_20241218"
+     "minutes_20220615",
+     "minutes_20230726",
+     "minutes_20230503",
+     "minutes_20230322"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20220316",
-     "statement_20260729",
-     "minutes_20260916",
      "minutes_20220615",
-     "statement_20220316"
+     "minutes_20220615",
+     "minutes_20260916",
+     "minutes_20220316",
+     "minutes_20220316"
     ]
    }
   },
@@ -1199,21 +1202,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "statement_20240731",
-     "statement_20240918",
      "statement_20220615",
+     "minutes_20260916",
+     "minutes_20220615",
      "statement_20251029",
-     "statement_20240612"
+     "statement_20220504"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
+     "minutes_20260916",
      "minutes_20251029",
-     "statement_20220316",
      "minutes_20260729",
-     "statement_20240731",
-     "minutes_20260429"
+     "minutes_20240731",
+     "minutes_20250319"
     ]
    }
   },
@@ -1237,21 +1240,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20210922",
-     "minutes_20210616",
-     "minutes_20210428",
      "minutes_20251029",
-     "minutes_20211103"
+     "minutes_20220316",
+     "minutes_20220615",
+     "minutes_20230322",
+     "minutes_20230503"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
+     "minutes_20220126",
+     "minutes_20231101",
+     "statement_20261028",
      "minutes_20210428",
-     "minutes_20210317",
-     "minutes_20211103",
-     "minutes_20210922",
-     "minutes_20221214"
+     "minutes_20260318"
     ]
    }
   },
@@ -1274,23 +1277,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20211103",
-     "minutes_20210922",
-     "minutes_20210616",
-     "minutes_20210428",
-     "minutes_20211215"
+     "minutes_20250618",
+     "minutes_20250730",
+     "minutes_20260429",
+     "minutes_20260729",
+     "minutes_20250129"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20210428",
-     "minutes_20220727",
-     "minutes_20210922",
+     "minutes_20260729",
      "minutes_20260617",
-     "minutes_20210728"
+     "minutes_20250730",
+     "minutes_20260429",
+     "minutes_20260729"
     ]
    }
   },
@@ -1313,23 +1316,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20210616",
+     "minutes_20260916",
+     "minutes_20250917",
      "minutes_20240612",
-     "minutes_20220316",
-     "minutes_20260318",
-     "minutes_20211103"
+     "minutes_20240131",
+     "minutes_20230920"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20210428",
-     "minutes_20210127",
-     "minutes_20211103",
+     "minutes_20260916",
+     "minutes_20250917",
+     "minutes_20260617",
      "minutes_20220921",
-     "minutes_20220504"
+     "minutes_20230920"
     ]
    }
   },
@@ -1352,23 +1355,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20210922",
-     "minutes_20211103",
-     "minutes_20250730",
-     "minutes_20260318",
-     "minutes_20220727"
+     "minutes_20250618",
+     "minutes_20230503",
+     "minutes_20250507",
+     "minutes_20250507",
+     "minutes_20260429"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
+     "minutes_20230614",
      "minutes_20230503",
-     "minutes_20240131",
-     "minutes_20230322",
-     "minutes_20230726",
-     "minutes_20230201"
+     "minutes_20230503",
+     "minutes_20231101",
+     "minutes_20240131"
     ]
    }
   },
@@ -1392,21 +1395,21 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20210127",
-     "minutes_20260729",
-     "minutes_20250319",
-     "minutes_20260318",
-     "minutes_20250730"
+     "minutes_20211215",
+     "minutes_20211103",
+     "minutes_20210728",
+     "minutes_20210922",
+     "minutes_20220615"
     ]
    },
    "hybrid": {
-    "hit": true,
+    "hit": false,
     "retrieved": [
-     "minutes_20260318",
-     "minutes_20241107",
-     "minutes_20250507",
      "minutes_20250618",
-     "minutes_20250730"
+     "minutes_20221214",
+     "minutes_20250730",
+     "minutes_20251210",
+     "minutes_20260429"
     ]
    }
   },
@@ -1433,23 +1436,23 @@
     ]
    },
    "embeddings": {
-    "hit": true,
+    "hit": false,
     "retrieved": [
-     "minutes_20260617",
+     "minutes_20240918",
+     "minutes_20260318",
      "minutes_20210616",
-     "minutes_20240131",
-     "minutes_20251029",
-     "minutes_20261028"
+     "minutes_20260318",
+     "minutes_20211215"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20260617",
-     "minutes_20240320",
      "minutes_20240918",
-     "minutes_20231213",
-     "minutes_20241218"
+     "minutes_20260617",
+     "minutes_20260916",
+     "minutes_20260429",
+     "minutes_20241107"
     ]
    }
   },
@@ -1480,21 +1483,21 @@
    "embeddings": {
     "hit": true,
     "retrieved": [
-     "minutes_20220316",
-     "minutes_20250730",
-     "minutes_20260128",
-     "minutes_20250129",
-     "statement_20250507"
+     "minutes_20210728",
+     "minutes_20210728",
+     "minutes_20260318",
+     "minutes_20251029",
+     "minutes_20240731"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20260128",
      "minutes_20210728",
-     "minutes_20221102",
-     "minutes_20240320",
-     "minutes_20220504"
+     "minutes_20210728",
+     "minutes_20260128",
+     "minutes_20230726",
+     "minutes_20241107"
     ]
    }
   },
@@ -1522,20 +1525,20 @@
    "embeddings": {
     "hit": false,
     "retrieved": [
-     "minutes_20210616",
+     "minutes_20250319",
      "minutes_20250129",
-     "minutes_20220316",
      "minutes_20260128",
-     "minutes_20250319"
+     "minutes_20251029",
+     "minutes_20230726"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20220504",
      "minutes_20260729",
-     "minutes_20210616",
+     "minutes_20220504",
      "minutes_20220615",
+     "minutes_20250319",
      "minutes_20221214"
     ]
    }
@@ -1559,23 +1562,23 @@
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
-     "minutes_20260318",
-     "minutes_20260729",
-     "minutes_20251210",
-     "minutes_20210922",
-     "minutes_20250618"
+     "minutes_20261028",
+     "minutes_20260128",
+     "minutes_20220615",
+     "minutes_20260429",
+     "minutes_20251210"
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
+     "minutes_20261028",
+     "minutes_20251029",
      "minutes_20251210",
-     "minutes_20260617",
-     "minutes_20260318",
-     "minutes_20260429",
-     "minutes_20260729"
+     "minutes_20260128",
+     "minutes_20251029"
     ]
    }
   },
@@ -1598,23 +1601,23 @@
     ]
    },
    "embeddings": {
-    "hit": true,
+    "hit": false,
     "retrieved": [
-     "minutes_20210616",
-     "minutes_20211103",
-     "minutes_20220316",
-     "minutes_20210127",
+     "minutes_20260318",
+     "minutes_20210317",
+     "minutes_20210428",
+     "minutes_20220126",
      "minutes_20210922"
     ]
    },
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20210127",
      "minutes_20210317",
-     "minutes_20211103",
      "minutes_20210428",
-     "minutes_20210922"
+     "minutes_20210127",
+     "minutes_20211215",
+     "minutes_20211103"
     ]
    }
   }

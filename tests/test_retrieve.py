@@ -67,6 +67,24 @@ def test_embedding_model_sees_normalized_text():
     assert seen == ["Rates at 5-1/4 percent-Cafe", "5-1/2 percent?"]
 
 
+def test_query_prefix_only_on_questions():
+    seen = []
+
+    def recording_encoder(texts):
+        seen.extend(texts)
+        return fake_encoder(texts)
+
+    r = Retriever(CHUNKS[:1], encoder=recording_encoder, cache_dir=None, query_prefix="query: ")
+    r.search("inflation", method="embeddings")
+    assert seen == [TEXTS[0], "query: inflation"]  # chunk without prefix, question with it
+
+
+def test_known_model_gets_its_query_prefix():
+    bge = Retriever(CHUNKS, cache_dir=None, model_name="BAAI/bge-small-en-v1.5")
+    minilm = Retriever(CHUNKS, cache_dir=None, model_name="sentence-transformers/all-MiniLM-L6-v2")
+    assert bge.query_prefix.startswith("Represent this sentence") and minilm.query_prefix == ""
+
+
 def test_embeddings_k_larger_than_corpus(retriever):
     hits = retriever.search("inflation", method="embeddings", k=50)
     assert len(hits) == len(CHUNKS) and all(h["chunk_id"].startswith("d#") for h in hits)

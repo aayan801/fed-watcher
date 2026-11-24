@@ -29,7 +29,13 @@ from src.chunk import chunk_all
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 CACHE = ROOT / "data" / "index"
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+# Embedding models we've tried, with the prefix each expects in front of a QUESTION (never a chunk).
+# all-MiniLM-L6-v2 reads at most 256 tokens and cut off 44% of our chunks; bge-small reads 512, cuts none.
+MODELS = {
+    "sentence-transformers/all-MiniLM-L6-v2": "",
+    "BAAI/bge-small-en-v1.5": "Represent this sentence for searching relevant passages: ",
+}
+MODEL_NAME = "BAAI/bge-small-en-v1.5"
 METHODS = ("bm25", "embeddings", "hybrid")
 RRF_K = 60  # standard constant from the original RRF paper; damps the gap between rank 1 and rank 2
 
@@ -79,20 +85,27 @@ def rrf(rankings: list[list[int]], k: int = RRF_K) -> list[int]:
 
 
 class Retriever:
-    def __init__(self, chunks: list[dict], encoder: Encoder | None = None, cache_dir: Path | None = CACHE):
+    def __init__(self, chunks: list[dict], encoder: Encoder | None = None, cache_dir: Path | None = CACHE,
+                 model_name: str = MODEL_NAME, query_prefix: str | None = None):
         if not chunks:
             raise ValueError("no chunks to search")
         self.chunks = chunks
         self.bm25 = BM25Okapi([tokenize(c["text"]) for c in chunks])
+        self.model_name = model_name
         self._encoder = encoder
+        # a custom encoder gets no prefix unless asked; a known model gets the prefix it was trained with
+        if query_prefix is None:
+            query_prefix = "" if encoder is not None else MODELS.get(model_name, "")
+        self.query_prefix = query_prefix
         self._cache_dir = cache_dir
         self._index: faiss.Index | None = None  # built on first embeddings search
 
     # ---- embeddings ---------------------------------------------------------------------------
-    def _encode(self, texts: list[str]) -> np.ndarray:
+    def _encode(self, texts: list[str], is_query: bool = False) -> np.ndarray:
         if self._encoder is None:
-            self._encoder = sentence_transformer_encoder()
-        vectors = np.asarray(self._encoder([normalize(t) for t in texts]), dtype=np.float32)
+            self._encoder = sentence_transformer_encoder(self.model_name)
+        prefix = self.query_prefix if is_query else ""
+        vectors = np.asarray(self._encoder([prefix + normalize(t) for t in texts]), dtype=np.float32)
         return np.ascontiguousarray(vectors)  # faiss needs float32, contiguous
 
     def _faiss_index(self) -> faiss.Index:
@@ -101,7 +114,7 @@ class Retriever:
         # encoding 2,000+ chunks takes minutes on CPU, so cache the vectors;
         # the key changes if the model, normalize() output or any chunk changes
         texts = [normalize(c["text"]) for c in self.chunks]
-        material = MODEL_NAME + "\n" + "\n".join(c["chunk_id"] + t for c, t in zip(self.chunks, texts))
+        material = self.model_name + "\n" + "\n".join(c["chunk_id"] + t for c, t in zip(self.chunks, texts))
         key = hashlib.sha256(material.encode()).hexdigest()[:16]
         path = self._cache_dir / f"embeddings_{key}.npy" if self._cache_dir else None
         if path and path.exists():
@@ -124,7 +137,7 @@ class Retriever:
 
     def rank_embeddings(self, question: str, n: int) -> list[int]:
         index = self._faiss_index()
-        _, ids = index.search(self._encode([question]), min(n, index.ntotal))
+        _, ids = index.search(self._encode([question], is_query=True), min(n, index.ntotal))
         return [int(i) for i in ids[0] if i >= 0]  # faiss pads with -1 when it has fewer results
 
     def search(self, question: str, method: str = "hybrid", k: int = 5) -> list[dict]:
