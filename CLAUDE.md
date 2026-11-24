@@ -16,6 +16,8 @@ RAG tool over FOMC statements and minutes (2021 onwards). Portfolio project for 
 - `eval/questions.json`: 40 eval questions with their relevant doc_ids, built by `eval/build_questions.py` (doc_ids found by matching each question's evidence pattern in the text)
 - `src/evaluate.py`: top-5 hit rate per method, overall and by question type; writes `eval/results.json`
 - `eval/experiments.md`: log of retrieval experiments and their hit rates (one change per row)
+- `src/answer.py`: answer step: top-5 hybrid chunks -> Claude Sonnet 5.5, answers only from the chunks with `[kind date]` citations, or "not found in the documents"; key read from `.env` only
+- `tests/test_answer.py`: answer-step tests with a fake LLM (no API calls)
 - `tests/test_chunk.py`: chunking contract
 - `tests/test_retrieve.py`: retrieval tests (fake encoder, no model download)
 - `tests/test_evaluate.py`: hit-rate metric tests (fake retriever)
