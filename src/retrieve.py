@@ -39,6 +39,7 @@ MODEL_NAME = "BAAI/bge-small-en-v1.5"
 METHODS = ("bm25", "embeddings", "hybrid")
 RRF_K = 60  # standard constant from the original RRF paper; damps the gap between rank 1 and rank 2
 BM25_WEIGHT = 2.0  # hybrid weight of BM25 relative to embeddings; chosen in eval/experiments.md (#2)
+DATE_HEADER = False  # put "FOMC <kind>, <date>:" in front of each chunk for search; see experiments.md (#3)
 
 Encoder = Callable[[list[str]], np.ndarray]
 
@@ -92,14 +93,22 @@ def rrf(rankings: list[list[int]], k: int = RRF_K, weights: list[float] | None =
     return sorted(scores, key=lambda i: (-scores[i], i))
 
 
+def index_text(chunk: dict, date_header: bool = DATE_HEADER) -> str:
+    """The text that gets searched. With a header, the meeting date and document kind become
+    searchable words, e.g. "FOMC minutes, 2024-09-18: ...". The chunk's own text is unchanged."""
+    return f"FOMC {chunk['kind']}, {chunk['date']}: {chunk['text']}" if date_header else chunk["text"]
+
+
 class Retriever:
     def __init__(self, chunks: list[dict], encoder: Encoder | None = None, cache_dir: Path | None = CACHE,
                  model_name: str = MODEL_NAME, query_prefix: str | None = None,
-                 bm25_weight: float = BM25_WEIGHT):
+                 bm25_weight: float = BM25_WEIGHT, date_header: bool = DATE_HEADER):
         if not chunks:
             raise ValueError("no chunks to search")
         self.chunks = chunks
-        self.bm25 = BM25Okapi([tokenize(c["text"]) for c in chunks])
+        self.date_header = date_header
+        self._texts = [index_text(c, date_header) for c in chunks]  # what BM25 and the model see
+        self.bm25 = BM25Okapi([tokenize(t) for t in self._texts])
         self.model_name = model_name
         self.bm25_weight = bm25_weight  # hybrid: BM25's RRF weight; embeddings always count 1.0
         self._encoder = encoder
@@ -122,15 +131,15 @@ class Retriever:
         if self._index is not None:
             return self._index
         # encoding 2,000+ chunks takes minutes on CPU, so cache the vectors;
-        # the key changes if the model, normalize() output or any chunk changes
-        texts = [normalize(c["text"]) for c in self.chunks]
+        # the key changes if the model, normalize() output, the header or any chunk changes
+        texts = [normalize(t) for t in self._texts]
         material = self.model_name + "\n" + "\n".join(c["chunk_id"] + t for c, t in zip(self.chunks, texts))
         key = hashlib.sha256(material.encode()).hexdigest()[:16]
         path = self._cache_dir / f"embeddings_{key}.npy" if self._cache_dir else None
         if path and path.exists():
             vectors = np.load(path)
         else:
-            vectors = self._encode([c["text"] for c in self.chunks])
+            vectors = self._encode(self._texts)
             if path:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 np.save(path, vectors)

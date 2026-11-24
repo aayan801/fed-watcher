@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.retrieve import Retriever, normalize, rrf, tokenize
+from src.retrieve import Retriever, index_text, normalize, rrf, tokenize
 
 TEXTS = [
     "Inflation remains elevated and consumer prices rose sharply.",            # 0 inflation
@@ -137,6 +137,28 @@ def test_hybrid_uses_bm25_weight():
     assert emb_only.search(q, "embeddings", k=1)[0]["chunk_id"] == "d#1"
     assert bm25_only.search(q, "hybrid", k=1)[0]["chunk_id"] == "d#4"
     assert emb_only.search(q, "hybrid", k=1)[0]["chunk_id"] == "d#1"
+
+
+def test_date_header_makes_date_searchable_but_keeps_text():
+    chunks = [dict(c, date=f"202{i}-01-01") for i, c in enumerate(CHUNKS)]
+    plain = Retriever(chunks, encoder=fake_encoder, cache_dir=None, date_header=False)
+    header = Retriever(chunks, encoder=fake_encoder, cache_dir=None, date_header=True)
+    assert plain.search("2023", "bm25") == []
+    hits = header.search("2023", "bm25")
+    assert hits[0]["chunk_id"] == "d#3"
+    assert hits[0]["text"] == TEXTS[3]  # returned text has no header
+    assert index_text(chunks[3], True) == "FOMC minutes, 2023-01-01: " + TEXTS[3]
+
+
+def test_embedding_model_sees_header():
+    seen = []
+
+    def recording_encoder(texts):
+        seen.extend(texts)
+        return fake_encoder(texts)
+
+    Retriever(CHUNKS[:1], encoder=recording_encoder, cache_dir=None, date_header=True).search("x", "embeddings")
+    assert seen[0] == "FOMC minutes, 2026-01-01: " + TEXTS[0]
 
 
 def test_unknown_method(retriever):
