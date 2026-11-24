@@ -1,0 +1,1622 @@
+{
+ "k": 5,
+ "n_questions": 40,
+ "overall": {
+  "bm25": 0.825,
+  "embeddings": 0.375,
+  "hybrid": 0.65
+ },
+ "by_type": {
+  "keyword": {
+   "n": 12,
+   "bm25": 1.0,
+   "embeddings": 0.5833333333333334,
+   "hybrid": 0.8333333333333334
+  },
+  "paraphrase": {
+   "n": 12,
+   "bm25": 0.5,
+   "embeddings": 0.25,
+   "hybrid": 0.5
+  },
+  "fraction": {
+   "n": 5,
+   "bm25": 0.8,
+   "embeddings": 0.4,
+   "hybrid": 0.6
+  },
+  "dash": {
+   "n": 5,
+   "bm25": 1.0,
+   "embeddings": 0.0,
+   "hybrid": 0.4
+  },
+  "accent": {
+   "n": 4,
+   "bm25": 1.0,
+   "embeddings": 0.5,
+   "hybrid": 1.0
+  },
+  "date": {
+   "n": 2,
+   "bm25": 1.0,
+   "embeddings": 0.5,
+   "hybrid": 0.5
+  }
+ },
+ "questions": [
+  {
+   "id": "q01",
+   "type": "keyword",
+   "question": "What did the Fed say about Silicon Valley Bank?",
+   "relevant": [
+    "minutes_20230322",
+    "minutes_20230503",
+    "minutes_20230614",
+    "minutes_20230726"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20260729",
+     "minutes_20230322"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322",
+     "minutes_20230322"
+    ]
+   }
+  },
+  {
+   "id": "q02",
+   "type": "keyword",
+   "question": "When did the Committee begin reducing net asset purchases by $10 billion for Treasury securities and $5 billion for agency mortgage-backed securities?",
+   "relevant": [
+    "minutes_20211103",
+    "statement_20211103"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20211103",
+     "statement_20211103",
+     "minutes_20211103",
+     "minutes_20211215",
+     "statement_20211215"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "statement_20211103",
+     "minutes_20211103",
+     "statement_20250319",
+     "minutes_20250319",
+     "minutes_20211215"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20211103",
+     "statement_20211103",
+     "minutes_20211103",
+     "minutes_20211215",
+     "minutes_20211215"
+    ]
+   }
+  },
+  {
+   "id": "q03",
+   "type": "keyword",
+   "question": "When did the Committee decide to conclude the reduction of its aggregate securities holdings?",
+   "relevant": [
+    "minutes_20251029",
+    "statement_20251029"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20251029",
+     "minutes_20251029",
+     "statement_20251029",
+     "minutes_20251029",
+     "minutes_20251029"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20211103",
+     "minutes_20251029",
+     "minutes_20220316",
+     "minutes_20231101",
+     "minutes_20230920"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20251029",
+     "minutes_20240320",
+     "minutes_20220316",
+     "minutes_20220504",
+     "minutes_20220126"
+    ]
+   }
+  },
+  {
+   "id": "q04",
+   "type": "keyword",
+   "question": "When was the monthly redemption cap on Treasury securities reduced from $25 billion to $5 billion?",
+   "relevant": [
+    "minutes_20250319",
+    "statement_20250319"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240501",
+     "minutes_20250319",
+     "statement_20250319",
+     "minutes_20250319",
+     "minutes_20240501"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240501",
+     "minutes_20220504",
+     "minutes_20220316",
+     "minutes_20220316",
+     "minutes_20220727"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240501",
+     "minutes_20220504",
+     "minutes_20240501",
+     "minutes_20250319",
+     "minutes_20240501"
+    ]
+   }
+  },
+  {
+   "id": "q05",
+   "type": "keyword",
+   "question": "What did the March 2022 statement say about the invasion of Ukraine by Russia?",
+   "relevant": [
+    "minutes_20220316",
+    "statement_20220316"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220615",
+     "minutes_20220316",
+     "minutes_20220504",
+     "minutes_20220316",
+     "minutes_20220504"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20220316",
+     "minutes_20230201",
+     "minutes_20220316",
+     "minutes_20220504"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20220615",
+     "minutes_20220504",
+     "minutes_20220316",
+     "minutes_20220316"
+    ]
+   }
+  },
+  {
+   "id": "q06",
+   "type": "keyword",
+   "question": "How did the Omicron variant affect the outlook in December 2021?",
+   "relevant": [
+    "minutes_20211215"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220126",
+     "minutes_20211215",
+     "minutes_20220126",
+     "minutes_20220316",
+     "minutes_20220126"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20220126",
+     "minutes_20220126",
+     "minutes_20211215",
+     "minutes_20220316"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20220126",
+     "minutes_20220316",
+     "minutes_20211215",
+     "minutes_20220126"
+    ]
+   }
+  },
+  {
+   "id": "q07",
+   "type": "keyword",
+   "question": "What did the staff say about debt associated with the artificial intelligence buildout?",
+   "relevant": [
+    "minutes_20261028"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20261028",
+     "minutes_20261028",
+     "minutes_20250319",
+     "minutes_20261028",
+     "minutes_20260916"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20261028",
+     "minutes_20261028",
+     "minutes_20260729",
+     "minutes_20251210",
+     "minutes_20260729"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20261028",
+     "minutes_20261028",
+     "minutes_20251029",
+     "minutes_20261028",
+     "minutes_20260916"
+    ]
+   }
+  },
+  {
+   "id": "q08",
+   "type": "keyword",
+   "question": "When did the Committee decide to begin reducing its holdings of Treasury securities and agency mortgage-backed securities on June 1?",
+   "relevant": [
+    "minutes_20220504",
+    "statement_20220504"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220504",
+     "statement_20220504",
+     "minutes_20240501",
+     "statement_20240501",
+     "minutes_20220504"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "statement_20211103",
+     "minutes_20211103",
+     "statement_20250319",
+     "minutes_20250319",
+     "statement_20240501"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240501",
+     "statement_20240501",
+     "statement_20250319",
+     "minutes_20250319",
+     "statement_20211103"
+    ]
+   }
+  },
+  {
+   "id": "q09",
+   "type": "keyword",
+   "question": "Why did James Bullard dissent in March 2022?",
+   "relevant": [
+    "minutes_20220316",
+    "statement_20220316"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20220316",
+     "minutes_20221214",
+     "minutes_20220615",
+     "minutes_20220727"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20250319",
+     "minutes_20250730",
+     "minutes_20251210",
+     "minutes_20250129",
+     "minutes_20221102"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20220615",
+     "minutes_20220504",
+     "minutes_20220126",
+     "minutes_20220727"
+    ]
+   }
+  },
+  {
+   "id": "q10",
+   "type": "keyword",
+   "question": "When did the Committee decide to initiate purchases of shorter-term Treasury securities to maintain ample reserves?",
+   "relevant": [
+    "minutes_20251210",
+    "statement_20251210"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20251210",
+     "minutes_20251210",
+     "minutes_20251210",
+     "statement_20251210"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240320",
+     "minutes_20250129",
+     "minutes_20211215",
+     "minutes_20220126",
+     "minutes_20211103"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240320",
+     "minutes_20251210",
+     "minutes_20220316",
+     "minutes_20251210",
+     "minutes_20220316"
+    ]
+   }
+  },
+  {
+   "id": "q11",
+   "type": "keyword",
+   "question": "How did the resolution of the debt limit affect Treasury bill supply in 2023?",
+   "relevant": [
+    "minutes_20230614"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230614",
+     "minutes_20241218",
+     "minutes_20250129",
+     "minutes_20211215",
+     "minutes_20250319"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20211103",
+     "minutes_20230726",
+     "minutes_20210728",
+     "minutes_20251029",
+     "minutes_20241218"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20211103",
+     "minutes_20241218",
+     "minutes_20211215",
+     "minutes_20210728",
+     "minutes_20250319"
+    ]
+   }
+  },
+  {
+   "id": "q12",
+   "type": "keyword",
+   "question": "How did the March 2026 statement describe the implications of developments in the Middle East?",
+   "relevant": [
+    "minutes_20260318",
+    "statement_20260318"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260429",
+     "minutes_20260318",
+     "minutes_20260729",
+     "minutes_20260617",
+     "minutes_20260318"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260617",
+     "minutes_20260318",
+     "minutes_20260318",
+     "minutes_20260318",
+     "minutes_20260318"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260617",
+     "minutes_20260318",
+     "minutes_20260318",
+     "minutes_20260318",
+     "minutes_20260729"
+    ]
+   }
+  },
+  {
+   "id": "q13",
+   "type": "paraphrase",
+   "question": "When did the Fed start slowing its bond buying in 2021?",
+   "relevant": [
+    "minutes_20211103",
+    "statement_20211103"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240320",
+     "minutes_20240320",
+     "minutes_20240131",
+     "minutes_20210127",
+     "minutes_20210428"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20230614",
+     "minutes_20220615",
+     "minutes_20231213",
+     "minutes_20210728",
+     "minutes_20241218"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220921",
+     "minutes_20250917",
+     "minutes_20211103",
+     "minutes_20230614",
+     "minutes_20240320"
+    ]
+   }
+  },
+  {
+   "id": "q14",
+   "type": "paraphrase",
+   "question": "When did the Fed decide to stop shrinking its balance sheet?",
+   "relevant": [
+    "minutes_20251029",
+    "statement_20251029"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20220504",
+     "minutes_20240320",
+     "minutes_20220316",
+     "minutes_20231213",
+     "minutes_20220504"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20220504",
+     "minutes_20240320",
+     "minutes_20231101",
+     "minutes_20211215",
+     "minutes_20240501"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240320",
+     "minutes_20220504",
+     "minutes_20231213",
+     "minutes_20231101",
+     "minutes_20251029"
+    ]
+   }
+  },
+  {
+   "id": "q15",
+   "type": "paraphrase",
+   "question": "How did the collapse of two regional lenders in early 2023 affect credit markets?",
+   "relevant": [
+    "minutes_20230322"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20221214",
+     "minutes_20221214",
+     "minutes_20240320",
+     "minutes_20260318",
+     "minutes_20230322"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20260318",
+     "minutes_20231213",
+     "minutes_20220921",
+     "minutes_20220727",
+     "minutes_20260318"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20250507",
+     "minutes_20221214",
+     "minutes_20260318",
+     "minutes_20221214"
+    ]
+   }
+  },
+  {
+   "id": "q16",
+   "type": "paraphrase",
+   "question": "Did anyone want a smaller rate cut than half a point in September 2024?",
+   "relevant": [
+    "minutes_20240918",
+    "statement_20240918"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240918",
+     "minutes_20240918",
+     "minutes_20250917",
+     "minutes_20251029",
+     "minutes_20221102"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20240612",
+     "minutes_20240731",
+     "minutes_20260916",
+     "minutes_20250917"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240731",
+     "minutes_20240918",
+     "minutes_20240918",
+     "minutes_20220727",
+     "minutes_20241107"
+    ]
+   }
+  },
+  {
+   "id": "q17",
+   "type": "paraphrase",
+   "question": "Who wanted to hold rates steady instead of cutting in December 2024?",
+   "relevant": [
+    "minutes_20241218",
+    "statement_20241218"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210922",
+     "minutes_20220316",
+     "minutes_20210127",
+     "minutes_20260128",
+     "minutes_20231101"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240612",
+     "minutes_20231213",
+     "minutes_20251210",
+     "minutes_20211103",
+     "minutes_20240501"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240612",
+     "minutes_20230201",
+     "minutes_20220126",
+     "minutes_20210922",
+     "minutes_20220316"
+    ]
+   }
+  },
+  {
+   "id": "q18",
+   "type": "paraphrase",
+   "question": "Did businesses plan to pass higher import taxes on to customers in early 2025?",
+   "relevant": [
+    "minutes_20250129"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20221102",
+     "minutes_20250730",
+     "minutes_20250730",
+     "minutes_20211103",
+     "minutes_20220126"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210616",
+     "minutes_20220316",
+     "minutes_20250507",
+     "minutes_20260128",
+     "minutes_20250618"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20250730",
+     "minutes_20250730",
+     "minutes_20250618",
+     "minutes_20250507",
+     "minutes_20251029"
+    ]
+   }
+  },
+  {
+   "id": "q19",
+   "type": "paraphrase",
+   "question": "Did policymakers worry that a lapse in federal funding would hold up economic statistics in fall 2023?",
+   "relevant": [
+    "minutes_20230920"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20230920",
+     "minutes_20260128",
+     "minutes_20230322",
+     "minutes_20230726"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20211215",
+     "minutes_20210127",
+     "minutes_20230201",
+     "minutes_20231213",
+     "minutes_20240612"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20230322",
+     "minutes_20251210",
+     "minutes_20221214",
+     "minutes_20210616",
+     "minutes_20230201"
+    ]
+   }
+  },
+  {
+   "id": "q20",
+   "type": "paraphrase",
+   "question": "When did officials first discuss letting the balance sheet shrink after the first rate hike?",
+   "relevant": [
+    "minutes_20211215"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20211215",
+     "minutes_20211215",
+     "minutes_20240320",
+     "minutes_20240501",
+     "minutes_20211215"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20240320",
+     "minutes_20231213",
+     "minutes_20230920",
+     "minutes_20220316",
+     "minutes_20211215"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20211215",
+     "minutes_20231213",
+     "minutes_20240320",
+     "minutes_20240501",
+     "minutes_20211215"
+    ]
+   }
+  },
+  {
+   "id": "q21",
+   "type": "paraphrase",
+   "question": "Did officials expect the 2021 rise in inflation to be temporary?",
+   "relevant": [
+    "minutes_20210317",
+    "minutes_20210428",
+    "minutes_20210616",
+    "minutes_20210728",
+    "minutes_20210922",
+    "minutes_20211103",
+    "minutes_20211215",
+    "statement_20210428",
+    "statement_20210616",
+    "statement_20210728",
+    "statement_20210922",
+    "statement_20211103"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210728",
+     "minutes_20210922",
+     "minutes_20210922",
+     "minutes_20211103",
+     "minutes_20211215"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230726",
+     "minutes_20210428",
+     "minutes_20210127",
+     "minutes_20210616",
+     "minutes_20230201"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210728",
+     "minutes_20210428",
+     "minutes_20230726",
+     "minutes_20210127",
+     "minutes_20210922"
+    ]
+   }
+  },
+  {
+   "id": "q22",
+   "type": "paraphrase",
+   "question": "Could new technology like AI raise how much workers produce, according to participants in spring 2024?",
+   "relevant": [
+    "minutes_20240501"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210317",
+     "minutes_20260318",
+     "minutes_20240320",
+     "minutes_20260729",
+     "minutes_20220727"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20260729",
+     "minutes_20260916",
+     "minutes_20260729",
+     "minutes_20260729",
+     "minutes_20260916"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20260729",
+     "minutes_20260318",
+     "minutes_20241107",
+     "minutes_20260729",
+     "minutes_20260617"
+    ]
+   }
+  },
+  {
+   "id": "q23",
+   "type": "paraphrase",
+   "question": "When did the Fed set up permanent backstop facilities for short-term secured lending markets?",
+   "relevant": [
+    "minutes_20210728"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210428",
+     "minutes_20210616",
+     "minutes_20230322",
+     "minutes_20211215",
+     "minutes_20210127"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210616",
+     "minutes_20240731",
+     "minutes_20231101",
+     "minutes_20210922",
+     "minutes_20250129"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20260128",
+     "minutes_20250129",
+     "minutes_20210428",
+     "minutes_20230322",
+     "minutes_20210428"
+    ]
+   }
+  },
+  {
+   "id": "q24",
+   "type": "paraphrase",
+   "question": "Did all participants support the Fed's long-run strategy document as written at the start of 2021?",
+   "relevant": [
+    "minutes_20210127"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210127",
+     "minutes_20210127",
+     "minutes_20230201",
+     "minutes_20220126",
+     "minutes_20250129"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20250730",
+     "minutes_20220126",
+     "minutes_20210127",
+     "minutes_20240501",
+     "minutes_20251029"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210127",
+     "minutes_20250129",
+     "minutes_20230201",
+     "minutes_20210317",
+     "minutes_20250730"
+    ]
+   }
+  },
+  {
+   "id": "q25",
+   "type": "fraction",
+   "question": "Why did members keep the target range at 5-1/4 to 5-1/2 percent in November 2023?",
+   "relevant": [
+    "minutes_20231101",
+    "statement_20231101"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20231101",
+     "minutes_20231101",
+     "minutes_20240612",
+     "minutes_20240320",
+     "minutes_20240131"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20261028",
+     "minutes_20230614",
+     "minutes_20251210",
+     "minutes_20240612",
+     "minutes_20261028"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20240612",
+     "minutes_20240731",
+     "minutes_20240131",
+     "minutes_20240320",
+     "minutes_20240918"
+    ]
+   }
+  },
+  {
+   "id": "q26",
+   "type": "fraction",
+   "question": "Why did the Committee lower rates by 25 basis points to 4-1/4 to 4-1/2 percent in December 2024?",
+   "relevant": [
+    "minutes_20241218",
+    "statement_20241218"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20241218",
+     "minutes_20240918",
+     "minutes_20221214",
+     "minutes_20241218",
+     "minutes_20250730"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20241107",
+     "minutes_20250917",
+     "minutes_20241218",
+     "minutes_20230614",
+     "minutes_20251029"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20241218",
+     "minutes_20241107",
+     "minutes_20241218",
+     "minutes_20230614",
+     "minutes_20250917"
+    ]
+   }
+  },
+  {
+   "id": "q27",
+   "type": "fraction",
+   "question": "When did the Committee raise the target range by ¼ percentage point to 3¾ to 4 percent?",
+   "relevant": [
+    "minutes_20260916",
+    "statement_20260916"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "statement_20260916",
+     "statement_20260729",
+     "minutes_20251210",
+     "statement_20261028"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20261028",
+     "statement_20220615",
+     "minutes_20260429",
+     "minutes_20230614"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20251029",
+     "minutes_20260429",
+     "minutes_20251210",
+     "minutes_20260729"
+    ]
+   }
+  },
+  {
+   "id": "q28",
+   "type": "fraction",
+   "question": "Which meeting kept the target range at 5 to 5¼ percent after a long series of hikes?",
+   "relevant": [
+    "minutes_20230614",
+    "statement_20230614"
+   ],
+   "bm25": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20250730",
+     "minutes_20240918",
+     "minutes_20240501",
+     "minutes_20240131",
+     "minutes_20220316"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20261028",
+     "minutes_20220126",
+     "minutes_20230614",
+     "minutes_20230920",
+     "minutes_20220504"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230614",
+     "minutes_20250730",
+     "minutes_20240501",
+     "minutes_20230920",
+     "minutes_20240131"
+    ]
+   }
+  },
+  {
+   "id": "q29",
+   "type": "fraction",
+   "question": "When did the Fed raise rates to 1½ to 1¾ percent?",
+   "relevant": [
+    "minutes_20220615",
+    "statement_20220615"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220615",
+     "minutes_20220615",
+     "minutes_20220316",
+     "minutes_20220316",
+     "statement_20260729"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20260916",
+     "minutes_20261028",
+     "minutes_20250917",
+     "minutes_20220316",
+     "minutes_20241218"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "statement_20260729",
+     "minutes_20260916",
+     "minutes_20220615",
+     "statement_20220316"
+    ]
+   }
+  },
+  {
+   "id": "q30",
+   "type": "dash",
+   "question": "Who voted against the 9-3 decision in July 2026?",
+   "relevant": [
+    "minutes_20260729",
+    "statement_20260729"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260729",
+     "minutes_20260429",
+     "minutes_20261028",
+     "minutes_20260729",
+     "minutes_20260916"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "statement_20240731",
+     "statement_20240918",
+     "statement_20220615",
+     "statement_20251029",
+     "statement_20240612"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20251029",
+     "statement_20220316",
+     "minutes_20260729",
+     "statement_20240731",
+     "minutes_20260429"
+    ]
+   }
+  },
+  {
+   "id": "q31",
+   "type": "dash",
+   "question": "Which meeting approved its statement by a 10-2 vote?",
+   "relevant": [
+    "statement_20261028"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "statement_20261028",
+     "minutes_20210428",
+     "minutes_20210317",
+     "minutes_20261028",
+     "minutes_20220316"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210922",
+     "minutes_20210616",
+     "minutes_20210428",
+     "minutes_20251029",
+     "minutes_20211103"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210428",
+     "minutes_20210317",
+     "minutes_20211103",
+     "minutes_20210922",
+     "minutes_20221214"
+    ]
+   }
+  },
+  {
+   "id": "q32",
+   "type": "dash",
+   "question": "What did the Committee decide at its July 28-29, 2026 meeting?",
+   "relevant": [
+    "minutes_20260729",
+    "statement_20260729"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260729",
+     "minutes_20260429",
+     "minutes_20260617",
+     "minutes_20260916",
+     "minutes_20260318"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20211103",
+     "minutes_20210922",
+     "minutes_20210616",
+     "minutes_20210428",
+     "minutes_20211215"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210428",
+     "minutes_20220727",
+     "minutes_20210922",
+     "minutes_20260617",
+     "minutes_20210728"
+    ]
+   }
+  },
+  {
+   "id": "q33",
+   "type": "dash",
+   "question": "Summarize the September 15-16, 2026 FOMC meeting.",
+   "relevant": [
+    "minutes_20260916",
+    "statement_20260916"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260916",
+     "minutes_20260729",
+     "minutes_20260916",
+     "minutes_20261028",
+     "minutes_20220921"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210616",
+     "minutes_20240612",
+     "minutes_20220316",
+     "minutes_20260318",
+     "minutes_20211103"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210428",
+     "minutes_20210127",
+     "minutes_20211103",
+     "minutes_20220921",
+     "minutes_20220504"
+    ]
+   }
+  },
+  {
+   "id": "q34",
+   "type": "dash",
+   "question": "What was decided at the May 2-3, 2023 meeting?",
+   "relevant": [
+    "minutes_20230503",
+    "statement_20230503"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230503",
+     "minutes_20230614",
+     "minutes_20230322",
+     "minutes_20230201",
+     "minutes_20231101"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210922",
+     "minutes_20211103",
+     "minutes_20250730",
+     "minutes_20260318",
+     "minutes_20220727"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20230503",
+     "minutes_20240131",
+     "minutes_20230322",
+     "minutes_20230726",
+     "minutes_20230201"
+    ]
+   }
+  },
+  {
+   "id": "q35",
+   "type": "accent",
+   "question": "Which meeting did Enrique Martinez Garcia of the Dallas Fed attend?",
+   "relevant": [
+    "minutes_20250507"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20250507",
+     "minutes_20230322",
+     "minutes_20210127",
+     "minutes_20210127",
+     "minutes_20251029"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210127",
+     "minutes_20260729",
+     "minutes_20250319",
+     "minutes_20260318",
+     "minutes_20250730"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260318",
+     "minutes_20241107",
+     "minutes_20250507",
+     "minutes_20250618",
+     "minutes_20250730"
+    ]
+   }
+  },
+  {
+   "id": "q36",
+   "type": "accent",
+   "question": "Which FOMC meetings did Egon Zakrajsek attend?",
+   "relevant": [
+    "minutes_20250129",
+    "minutes_20250618",
+    "minutes_20250730",
+    "minutes_20251210",
+    "minutes_20260617",
+    "minutes_20260916"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260617",
+     "minutes_20241107",
+     "minutes_20240320",
+     "minutes_20241218",
+     "minutes_20240918"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260617",
+     "minutes_20210616",
+     "minutes_20240131",
+     "minutes_20251029",
+     "minutes_20261028"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260617",
+     "minutes_20240320",
+     "minutes_20240918",
+     "minutes_20231213",
+     "minutes_20241218"
+    ]
+   }
+  },
+  {
+   "id": "q37",
+   "type": "accent",
+   "question": "Which meetings list Isabel Cairo of the Division of Monetary Affairs?",
+   "relevant": [
+    "minutes_20210728",
+    "minutes_20220504",
+    "minutes_20221102",
+    "minutes_20230201",
+    "minutes_20240320",
+    "minutes_20240918",
+    "minutes_20250319",
+    "minutes_20260128"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260128",
+     "minutes_20210728",
+     "minutes_20240320",
+     "minutes_20221102",
+     "minutes_20220504"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220316",
+     "minutes_20250730",
+     "minutes_20260128",
+     "minutes_20250129",
+     "statement_20250507"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20260128",
+     "minutes_20210728",
+     "minutes_20221102",
+     "minutes_20240320",
+     "minutes_20220504"
+    ]
+   }
+  },
+  {
+   "id": "q38",
+   "type": "accent",
+   "question": "Which meetings did Giovanni Nicolo attend?",
+   "relevant": [
+    "minutes_20220615",
+    "minutes_20221214",
+    "minutes_20230322",
+    "minutes_20250618",
+    "minutes_20251210"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220615",
+     "minutes_20221214",
+     "minutes_20230322",
+     "minutes_20251210",
+     "minutes_20250618"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20210616",
+     "minutes_20250129",
+     "minutes_20220316",
+     "minutes_20260128",
+     "minutes_20250319"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20220504",
+     "minutes_20260729",
+     "minutes_20210616",
+     "minutes_20220615",
+     "minutes_20221214"
+    ]
+   }
+  },
+  {
+   "id": "q39",
+   "type": "date",
+   "question": "Who dissented at the October 2026 meeting and why?",
+   "relevant": [
+    "minutes_20261028",
+    "statement_20261028"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20261028",
+     "minutes_20260429",
+     "minutes_20261028",
+     "minutes_20251029",
+     "minutes_20260729"
+    ]
+   },
+   "embeddings": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20260318",
+     "minutes_20260729",
+     "minutes_20251210",
+     "minutes_20210922",
+     "minutes_20250618"
+    ]
+   },
+   "hybrid": {
+    "hit": false,
+    "retrieved": [
+     "minutes_20251210",
+     "minutes_20260617",
+     "minutes_20260318",
+     "minutes_20260429",
+     "minutes_20260729"
+    ]
+   }
+  },
+  {
+   "id": "q40",
+   "type": "date",
+   "question": "What did the FOMC decide at its January 2021 meeting?",
+   "relevant": [
+    "minutes_20210127",
+    "statement_20210127"
+   ],
+   "bm25": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210317",
+     "minutes_20210127",
+     "minutes_20211215",
+     "minutes_20220126",
+     "minutes_20210428"
+    ]
+   },
+   "embeddings": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210616",
+     "minutes_20211103",
+     "minutes_20220316",
+     "minutes_20210127",
+     "minutes_20210922"
+    ]
+   },
+   "hybrid": {
+    "hit": true,
+    "retrieved": [
+     "minutes_20210127",
+     "minutes_20210317",
+     "minutes_20211103",
+     "minutes_20210428",
+     "minutes_20210922"
+    ]
+   }
+  }
+ ]
+}
