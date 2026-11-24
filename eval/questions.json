@@ -1,0 +1,415 @@
+[
+ {
+  "id": "q01",
+  "type": "keyword",
+  "question": "What did the Fed say about Silicon Valley Bank?",
+  "relevant": [
+   "minutes_20230322",
+   "minutes_20230503",
+   "minutes_20230614",
+   "minutes_20230726"
+  ],
+  "evidence": "Supervision described the developments, including those at Silicon Valley Bank, Signature Bank, and Credit Suisse. He also described actio"
+ },
+ {
+  "id": "q02",
+  "type": "keyword",
+  "question": "When did the Committee begin reducing net asset purchases by $10 billion for Treasury securities and $5 billion for agency mortgage-backed securities?",
+  "relevant": [
+   "minutes_20211103",
+   "statement_20211103"
+  ],
+  "evidence": "gin reducing the monthly pace of its net asset purchases by $10 billion for Treasury securities and $5 billion for agency mortgage-backed securities. Beginning later this month, the Committee will"
+ },
+ {
+  "id": "q03",
+  "type": "keyword",
+  "question": "When did the Committee decide to conclude the reduction of its aggregate securities holdings?",
+  "relevant": [
+   "minutes_20251029",
+   "statement_20251029"
+  ],
+  "evidence": "outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to suppo"
+ },
+ {
+  "id": "q04",
+  "type": "keyword",
+  "question": "When was the monthly redemption cap on Treasury securities reduced from $25 billion to $5 billion?",
+  "relevant": [
+   "minutes_20250319",
+   "statement_20250319"
+  ],
+  "evidence": "h the monthly redemption cap on Treasury securities reduced from $25 billion to $5 billion and the monthly redemption cap on agency debt and agency mo"
+ },
+ {
+  "id": "q05",
+  "type": "keyword",
+  "question": "What did the March 2022 statement say about the invasion of Ukraine by Russia?",
+  "relevant": [
+   "minutes_20220316",
+   "statement_20220316"
+  ],
+  "evidence": "global financial market developments. Following the Russian invasion of Ukraine and the subsequent imposition of an array of sanctions, the"
+ },
+ {
+  "id": "q06",
+  "type": "keyword",
+  "question": "How did the Omicron variant affect the outlook in December 2021?",
+  "relevant": [
+   "minutes_20211215"
+  ],
+  "evidence": "conomy and monetary policy, as well as the emergence of the Omicron variant. Overall, domestic financial conditions tightened m"
+ },
+ {
+  "id": "q07",
+  "type": "keyword",
+  "question": "What did the staff say about debt associated with the artificial intelligence buildout?",
+  "relevant": [
+   "minutes_20261028"
+  ],
+  "evidence": "so highlighted the rapid growth of debt associated with the artificial intelligence (AI) buildout, noting that off-balance-sheet leasing commitments and circ"
+ },
+ {
+  "id": "q08",
+  "type": "keyword",
+  "question": "When did the Committee decide to begin reducing its holdings of Treasury securities and agency mortgage-backed securities on June 1?",
+  "relevant": [
+   "minutes_20220504",
+   "statement_20220504"
+  ],
+  "evidence": "would be appropriate. In addition, the Committee decided to begin reducing its holdings of Treasury securities and agency debt and agency mortgage-backed securities on June 1, as described in the Plans for Reducing the Size of the Fed"
+ },
+ {
+  "id": "q09",
+  "type": "keyword",
+  "question": "Why did James Bullard dissent in March 2022?",
+  "relevant": [
+   "minutes_20220316",
+   "statement_20220316"
+  ],
+  "evidence": "rick Harker, Loretta J. Mester, and Christopher J. Waller. Voting against this action : James Bullard. Patrick Harker voted as an alternate member at this meeti"
+ },
+ {
+  "id": "q10",
+  "type": "keyword",
+  "question": "When did the Committee decide to initiate purchases of shorter-term Treasury securities to maintain ample reserves?",
+  "relevant": [
+   "minutes_20251210",
+   "statement_20251210"
+  ],
+  "evidence": "icipants assessed that it was appropriate to begin RMPs and initiate purchases of shorter-term Treasury securities to maintain an ample supply of reserves over time. The dis"
+ },
+ {
+  "id": "q11",
+  "type": "keyword",
+  "question": "How did the resolution of the debt limit affect Treasury bill supply in 2023?",
+  "relevant": [
+   "minutes_20230614"
+  ],
+  "evidence": "re inflation, and reduced downside tail risks following the resolution of the debt limit. The shift in policy expectations contributed significantly"
+ },
+ {
+  "id": "q12",
+  "type": "keyword",
+  "question": "How did the March 2026 statement describe the implications of developments in the Middle East?",
+  "relevant": [
+   "minutes_20260318",
+   "statement_20260318"
+  ],
+  "evidence": "the economic outlook remained elevated. They noted that the implications of developments in the Middle East for the U.S. economy were uncertain. Members concurred that"
+ },
+ {
+  "id": "q13",
+  "type": "paraphrase",
+  "question": "When did the Fed start slowing its bond buying in 2021?",
+  "relevant": [
+   "minutes_20211103",
+   "statement_20211103"
+  ],
+  "evidence": "ittee's goals since last December, the Committee decided to begin reducing the monthly pace of its net asset purchases by $10 billion for Treasury securities and $5 billion for a"
+ },
+ {
+  "id": "q14",
+  "type": "paraphrase",
+  "question": "When did the Fed decide to stop shrinking its balance sheet?",
+  "relevant": [
+   "minutes_20251029",
+   "statement_20251029"
+  ],
+  "evidence": "outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to suppo"
+ },
+ {
+  "id": "q15",
+  "type": "paraphrase",
+  "question": "How did the collapse of two regional lenders in early 2023 affect credit markets?",
+  "relevant": [
+   "minutes_20230322"
+  ],
+  "evidence": "elopments in the banking sector were limited. After the two bank closures, issuance of municipal bond and leveraged loans was sluggis"
+ },
+ {
+  "id": "q16",
+  "type": "paraphrase",
+  "question": "Did anyone want a smaller rate cut than half a point in September 2024?",
+  "relevant": [
+   "minutes_20240918",
+   "statement_20240918"
+  ],
+  "evidence": ". Jefferson, Adriana D. Kugler, and Christopher J. Waller. Voting against this action: Michelle W. Bowman. Governor Bowman preferred at this meeting to lower the ta"
+ },
+ {
+  "id": "q17",
+  "type": "paraphrase",
+  "question": "Who wanted to hold rates steady instead of cutting in December 2024?",
+  "relevant": [
+   "minutes_20241218",
+   "statement_20241218"
+  ],
+  "evidence": ". Jefferson, Adriana D. Kugler, and Christopher J. Waller. Voting against this action: Beth M. Hammack. President Hammack dissented because she preferred to main"
+ },
+ {
+  "id": "q18",
+  "type": "paraphrase",
+  "question": "Did businesses plan to pass higher import taxes on to customers in early 2025?",
+  "relevant": [
+   "minutes_20250129"
+  ],
+  "evidence": "mber of Districts had indicated that firms would attempt to pass on to consumers higher input costs arising from potential tariffs. In addition, some participants noted that some market- or"
+ },
+ {
+  "id": "q19",
+  "type": "paraphrase",
+  "question": "Did policymakers worry that a lapse in federal funding would hold up economic statistics in fall 2023?",
+  "relevant": [
+   "minutes_20230920"
+  ],
+  "evidence": "so far could persist. Several participants commented that a government shutdown might result in the delayed release of some economic data and that this outcome would make it m"
+ },
+ {
+  "id": "q20",
+  "type": "paraphrase",
+  "question": "When did officials first discuss letting the balance sheet shrink after the first rate hike?",
+  "relevant": [
+   "minutes_20211215"
+  ],
+  "evidence": "participants agreed that it would likely be appropriate to initiate balance sheet runoff at some point after the first increase in the target range for the federal funds rate. However, pa"
+ },
+ {
+  "id": "q21",
+  "type": "paraphrase",
+  "question": "Did officials expect the 2021 rise in inflation to be temporary?",
+  "relevant": [
+   "minutes_20210317",
+   "minutes_20210428",
+   "minutes_20210616",
+   "minutes_20210728",
+   "minutes_20210922",
+   "minutes_20211103",
+   "minutes_20211215",
+   "statement_20210428",
+   "statement_20210616",
+   "statement_20210728",
+   "statement_20210922",
+   "statement_20211103"
+  ],
+  "evidence": "roduction bottlenecks and supply constraints. Following the transitory increase this year, inflation was projected to run a bit be"
+ },
+ {
+  "id": "q22",
+  "type": "paraphrase",
+  "question": "Could new technology like AI raise how much workers produce, according to participants in spring 2024?",
+  "relevant": [
+   "minutes_20240501"
+  ],
+  "evidence": "ductivity growth might be sustained by the incorporation of technologies such as artificial intelligence into existing business operations or by high rates of new business formation in the technolog"
+ },
+ {
+  "id": "q23",
+  "type": "paraphrase",
+  "question": "When did the Fed set up permanent backstop facilities for short-term secured lending markets?",
+  "relevant": [
+   "minutes_20210728"
+  ],
+  "evidence": "ates emerged, it may become appropriate to lift the limit. Establishment of Standing Repurchase Agreement Facilities Finally, the manager summarized the proposed terms for the"
+ },
+ {
+  "id": "q24",
+  "type": "paraphrase",
+  "question": "Did all participants support the Fed's long-run strategy document as written at the start of 2021?",
+  "relevant": [
+   "minutes_20210127"
+  ],
+  "evidence": "Statement on Longer-Run Goals and Monetary Policy Strategy, all participants supported the statement as written, and the Committee voted unanimously to reaffirm without re"
+ },
+ {
+  "id": "q25",
+  "type": "fraction",
+  "question": "Why did members keep the target range at 5-1/4 to 5-1/2 percent in November 2023?",
+  "relevant": [
+   "minutes_20231101",
+   "statement_20231101"
+  ],
+  "evidence": "to maintain the target range for the federal funds rate at 5¼ to 5½ percent at this meeting. Participants judged that maintaini"
+ },
+ {
+  "id": "q26",
+  "type": "fraction",
+  "question": "Why did the Committee lower rates by 25 basis points to 4-1/4 to 4-1/2 percent in December 2024?",
+  "relevant": [
+   "minutes_20241218",
+   "statement_20241218"
+  ],
+  "evidence": "rget range for the federal funds rate by 25 basis points to 4¼ to 4½ percent. They assessed that such a further lowering of the"
+ },
+ {
+  "id": "q27",
+  "type": "fraction",
+  "question": "When did the Committee raise the target range by ¼ percentage point to 3¾ to 4 percent?",
+  "relevant": [
+   "minutes_20260916",
+   "statement_20260916"
+  ],
+  "evidence": "ement for release by a 12–0 vote: The Committee decided to raise the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent, in support of the Federal Reserve's dual mandate. The Comm"
+ },
+ {
+  "id": "q28",
+  "type": "fraction",
+  "question": "Which meeting kept the target range at 5 to 5¼ percent after a long series of hikes?",
+  "relevant": [
+   "minutes_20230614",
+   "statement_20230614"
+  ],
+  "evidence": "ost all participants judged it appropriate or acceptable to maintain the target range for the federal funds rate at 5 to 5-1/4 percent at this meeting. Most of these participants observed that l"
+ },
+ {
+  "id": "q29",
+  "type": "fraction",
+  "question": "When did the Fed raise rates to 1½ to 1¾ percent?",
+  "relevant": [
+   "minutes_20220615",
+   "statement_20220615"
+  ],
+  "evidence": "loyment and price-stability goals, the Committee decided to raise the target range for the federal funds rate to 1-1/2 to 1-3/4 percent and anticipated that ongoing increases in the target range"
+ },
+ {
+  "id": "q30",
+  "type": "dash",
+  "question": "Who voted against the 9-3 decision in July 2026?",
+  "relevant": [
+   "minutes_20260729",
+   "statement_20260729"
+  ],
+  "evidence": "Committee approved the following statement for release by a 9 – 3 vote: The Committee decided to maintain the target range for th"
+ },
+ {
+  "id": "q31",
+  "type": "dash",
+  "question": "Which meeting approved its statement by a 10-2 vote?",
+  "relevant": [
+   "statement_20261028"
+  ],
+  "evidence": "Committee approved the following statement for release by a 10 – 2 vote: The Committee decided to maintain the target range for th"
+ },
+ {
+  "id": "q32",
+  "type": "dash",
+  "question": "What did the Committee decide at its July 28-29, 2026 meeting?",
+  "relevant": [
+   "minutes_20260729",
+   "statement_20260729"
+  ],
+  "evidence": "the meeting's own statement and minutes"
+ },
+ {
+  "id": "q33",
+  "type": "dash",
+  "question": "Summarize the September 15-16, 2026 FOMC meeting.",
+  "relevant": [
+   "minutes_20260916",
+   "statement_20260916"
+  ],
+  "evidence": "the meeting's own statement and minutes"
+ },
+ {
+  "id": "q34",
+  "type": "dash",
+  "question": "What was decided at the May 2-3, 2023 meeting?",
+  "relevant": [
+   "minutes_20230503",
+   "statement_20230503"
+  ],
+  "evidence": "the meeting's own statement and minutes"
+ },
+ {
+  "id": "q35",
+  "type": "accent",
+  "question": "Which meeting did Enrique Martinez Garcia of the Dallas Fed attend?",
+  "relevant": [
+   "minutes_20250507"
+  ],
+  "evidence": "licy Advisor II, Federal Reserve Bank of St. Louis Enrique Martínez García, 6 Assistant Vice President, Federal Reserve Bank of Dallas"
+ },
+ {
+  "id": "q36",
+  "type": "accent",
+  "question": "Which FOMC meetings did Egon Zakrajsek attend?",
+  "relevant": [
+   "minutes_20250129",
+   "minutes_20250618",
+   "minutes_20250730",
+   "minutes_20251210",
+   "minutes_20260617",
+   "minutes_20260916"
+  ],
+  "evidence": ", Joseph W. Gruber, Anna Paulson, William Wascher, and Egon Zakrajšek, Associate Economists Roberto Perli, Manager, System Open"
+ },
+ {
+  "id": "q37",
+  "type": "accent",
+  "question": "Which meetings list Isabel Cairo of the Division of Monetary Affairs?",
+  "relevant": [
+   "minutes_20210728",
+   "minutes_20220504",
+   "minutes_20221102",
+   "minutes_20230201",
+   "minutes_20240320",
+   "minutes_20240918",
+   "minutes_20250319",
+   "minutes_20260128"
+  ],
+  "evidence": "mation Manager, Division of Monetary Affairs, Board Isabel Cairó, Senior Economist, Division of Monetary Affairs, Board Jam"
+ },
+ {
+  "id": "q38",
+  "type": "accent",
+  "question": "Which meetings did Giovanni Nicolo attend?",
+  "relevant": [
+   "minutes_20220615",
+   "minutes_20221214",
+   "minutes_20230322",
+   "minutes_20250618",
+   "minutes_20251210"
+  ],
+  "evidence": "omist, Division of Research and Statistics, Board Giovanni Nicolò, Arsenios Skaperdas, and Hiroatsu Tanaka, Senior Economists"
+ },
+ {
+  "id": "q39",
+  "type": "date",
+  "question": "Who dissented at the October 2026 meeting and why?",
+  "relevant": [
+   "minutes_20261028",
+   "statement_20261028"
+  ],
+  "evidence": "the meeting's own statement and minutes"
+ },
+ {
+  "id": "q40",
+  "type": "date",
+  "question": "What did the FOMC decide at its January 2021 meeting?",
+  "relevant": [
+   "minutes_20210127",
+   "statement_20210127"
+  ],
+  "evidence": "the meeting's own statement and minutes"
+ }
+]
