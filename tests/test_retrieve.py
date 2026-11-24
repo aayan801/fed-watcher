@@ -119,6 +119,26 @@ def test_rrf_rewards_agreement():
     assert rrf([[1, 7, 3], [2, 7, 4]])[0] == 7
 
 
+def test_rrf_weights_break_disagreements():
+    # BM25 says 1 then 2, embeddings say 2 then 1: equal weights tie (lower index wins), a weight decides
+    assert rrf([[1, 2], [2, 1]])[0] == 1
+    assert rrf([[1, 2], [2, 1]], weights=[1.0, 2.0])[0] == 2
+    assert rrf([[1, 2], [2, 1]], weights=[2.0, 1.0])[0] == 1
+    with pytest.raises(ValueError):
+        rrf([[1], [2]], weights=[1.0])
+
+
+def test_hybrid_uses_bm25_weight():
+    # BM25 only matches "Treasury" (chunk 4); the fake meaning model ranks the jobs chunk (1) first
+    q = "Treasury labor market jobs"
+    bm25_only = Retriever(CHUNKS, encoder=fake_encoder, cache_dir=None, bm25_weight=100.0)
+    emb_only = Retriever(CHUNKS, encoder=fake_encoder, cache_dir=None, bm25_weight=0.0)
+    assert bm25_only.search(q, "bm25", k=1)[0]["chunk_id"] == "d#4"
+    assert emb_only.search(q, "embeddings", k=1)[0]["chunk_id"] == "d#1"
+    assert bm25_only.search(q, "hybrid", k=1)[0]["chunk_id"] == "d#4"
+    assert emb_only.search(q, "hybrid", k=1)[0]["chunk_id"] == "d#1"
+
+
 def test_unknown_method(retriever):
     with pytest.raises(ValueError):
         retriever.search("rates", method="tfidf")

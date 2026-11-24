@@ -13,7 +13,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.retrieve import METHODS, MODEL_NAME, Retriever, load_chunks
+from src.retrieve import BM25_WEIGHT, METHODS, MODEL_NAME, Retriever, load_chunks
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTIONS = ROOT / "eval" / "questions.json"
@@ -69,10 +69,12 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("-k", type=int, default=5)
     ap.add_argument("--model", default=MODEL_NAME, help="embedding model (sentence-transformers name)")
+    ap.add_argument("--bm25-weight", type=float, default=BM25_WEIGHT, help="hybrid: BM25 weight vs embeddings (1.0)")
     args = ap.parse_args()
     questions = json.loads(QUESTIONS.read_text(encoding="utf-8"))
-    retriever = Retriever(load_chunks(), model_name=args.model)
-    res = {"settings": {"model": retriever.model_name}, **evaluate(retriever, questions, k=args.k)}
+    retriever = Retriever(load_chunks(), model_name=args.model, bm25_weight=args.bm25_weight)
+    settings = {"model": retriever.model_name, "bm25_weight": retriever.bm25_weight}
+    res = {"settings": settings, **evaluate(retriever, questions, k=args.k)}
     print("settings:", res["settings"])
     RESULTS.write_text(json.dumps(res, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(format_tables(res))

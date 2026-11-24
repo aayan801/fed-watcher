@@ -38,6 +38,7 @@ MODELS = {
 MODEL_NAME = "BAAI/bge-small-en-v1.5"
 METHODS = ("bm25", "embeddings", "hybrid")
 RRF_K = 60  # standard constant from the original RRF paper; damps the gap between rank 1 and rank 2
+BM25_WEIGHT = 2.0  # hybrid weight of BM25 relative to embeddings; chosen in eval/experiments.md (#2)
 
 Encoder = Callable[[list[str]], np.ndarray]
 
@@ -75,23 +76,32 @@ def sentence_transformer_encoder(model_name: str = MODEL_NAME) -> Encoder:
     return lambda texts: model.encode(texts, batch_size=64, normalize_embeddings=True, convert_to_numpy=True)
 
 
-def rrf(rankings: list[list[int]], k: int = RRF_K) -> list[int]:
-    """Reciprocal rank fusion: each list gives a chunk 1 / (k + rank). Highest total wins."""
+def rrf(rankings: list[list[int]], k: int = RRF_K, weights: list[float] | None = None) -> list[int]:
+    """Reciprocal rank fusion: each list gives a chunk weight / (k + rank). Highest total wins.
+
+    Equal weights treat both rankers as equally trustworthy; a higher weight lets one ranker win ties
+    and disagreements more often.
+    """
+    weights = weights or [1.0] * len(rankings)
+    if len(weights) != len(rankings):
+        raise ValueError("need one weight per ranking")
     scores: dict[int, float] = {}
-    for ranking in rankings:
+    for ranking, w in zip(rankings, weights):
         for rank, idx in enumerate(ranking, start=1):
-            scores[idx] = scores.get(idx, 0.0) + 1.0 / (k + rank)
+            scores[idx] = scores.get(idx, 0.0) + w / (k + rank)
     return sorted(scores, key=lambda i: (-scores[i], i))
 
 
 class Retriever:
     def __init__(self, chunks: list[dict], encoder: Encoder | None = None, cache_dir: Path | None = CACHE,
-                 model_name: str = MODEL_NAME, query_prefix: str | None = None):
+                 model_name: str = MODEL_NAME, query_prefix: str | None = None,
+                 bm25_weight: float = BM25_WEIGHT):
         if not chunks:
             raise ValueError("no chunks to search")
         self.chunks = chunks
         self.bm25 = BM25Okapi([tokenize(c["text"]) for c in chunks])
         self.model_name = model_name
+        self.bm25_weight = bm25_weight  # hybrid: BM25's RRF weight; embeddings always count 1.0
         self._encoder = encoder
         # a custom encoder gets no prefix unless asked; a known model gets the prefix it was trained with
         if query_prefix is None:
@@ -150,7 +160,8 @@ class Retriever:
         else:
             # fuse deeper lists than k, so a chunk ranked 8th by both methods can still make the top 5
             depth = max(50, k)
-            order = rrf([self.rank_bm25(question, depth), self.rank_embeddings(question, depth)])[:k]
+            rankings = [self.rank_bm25(question, depth), self.rank_embeddings(question, depth)]
+            order = rrf(rankings, weights=[self.bm25_weight, 1.0])[:k]
         return [dict(self.chunks[i], rank=r) for r, i in enumerate(order, start=1)]
 
 

@@ -1,20 +1,21 @@
 {
  "settings": {
-  "model": "BAAI/bge-small-en-v1.5"
+  "model": "BAAI/bge-small-en-v1.5",
+  "bm25_weight": 2.0
  },
  "k": 5,
  "n_questions": 40,
  "overall": {
   "bm25": 0.825,
   "embeddings": 0.625,
-  "hybrid": 0.825
+  "hybrid": 0.875
  },
  "by_type": {
   "keyword": {
    "n": 12,
    "bm25": 1.0,
    "embeddings": 0.75,
-   "hybrid": 0.9166666666666666
+   "hybrid": 1.0
   },
   "paraphrase": {
    "n": 12,
@@ -38,7 +39,7 @@
    "n": 4,
    "bm25": 1.0,
    "embeddings": 0.25,
-   "hybrid": 0.75
+   "hybrid": 1.0
   },
   "date": {
    "n": 2,
@@ -163,7 +164,7 @@
      "minutes_20240320",
      "minutes_20220504",
      "minutes_20251029",
-     "minutes_20220921"
+     "minutes_20211103"
     ]
    }
   },
@@ -198,11 +199,11 @@
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20220504",
      "minutes_20240501",
-     "minutes_20250319",
      "minutes_20220504",
-     "minutes_20240612"
+     "minutes_20250319",
+     "minutes_20240612",
+     "minutes_20240918"
     ]
    }
   },
@@ -277,8 +278,8 @@
     "retrieved": [
      "minutes_20220316",
      "minutes_20211215",
-     "minutes_20220316",
      "minutes_20220126",
+     "minutes_20220316",
      "minutes_20220126"
     ]
    }
@@ -352,10 +353,10 @@
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "statement_20220504",
      "minutes_20240501",
+     "statement_20220504",
      "statement_20240501",
-     "minutes_20211103",
+     "minutes_20220504",
      "minutes_20250319"
     ]
    }
@@ -392,10 +393,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20221102",
-     "minutes_20220316",
      "minutes_20220504",
-     "statement_20221214",
-     "statement_20221102"
+     "minutes_20220316",
+     "minutes_20230322",
+     "minutes_20220921"
     ]
    }
   },
@@ -432,9 +433,9 @@
     "retrieved": [
      "minutes_20251210",
      "minutes_20240320",
+     "minutes_20251210",
      "minutes_20260729",
-     "minutes_20220504",
-     "minutes_20251210"
+     "minutes_20260617"
     ]
    }
   },
@@ -466,13 +467,13 @@
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20241218",
      "minutes_20250319",
      "minutes_20211103",
-     "minutes_20250319",
-     "minutes_20210728"
+     "minutes_20210728",
+     "minutes_20230614"
     ]
    }
   },
@@ -509,9 +510,9 @@
     "retrieved": [
      "minutes_20260318",
      "minutes_20260318",
-     "minutes_20260429",
      "minutes_20260729",
-     "minutes_20260318"
+     "minutes_20260429",
+     "minutes_20260617"
     ]
    }
   },
@@ -547,10 +548,10 @@
     "hit": false,
     "retrieved": [
      "minutes_20210127",
+     "minutes_20240320",
      "minutes_20250917",
      "minutes_20240320",
-     "minutes_20240320",
-     "minutes_20210922"
+     "minutes_20240320"
     ]
    }
   },
@@ -587,9 +588,9 @@
     "retrieved": [
      "minutes_20240320",
      "minutes_20220504",
-     "minutes_20251029",
      "minutes_20231213",
-     "minutes_20220316"
+     "minutes_20251029",
+     "minutes_20220504"
     ]
    }
   },
@@ -625,9 +626,9 @@
     "retrieved": [
      "minutes_20251210",
      "minutes_20230503",
-     "minutes_20230322",
      "minutes_20230503",
-     "minutes_20220316"
+     "minutes_20230322",
+     "minutes_20221214"
     ]
    }
   },
@@ -663,8 +664,8 @@
     "hit": true,
     "retrieved": [
      "minutes_20250917",
-     "minutes_20240731",
      "minutes_20240918",
+     "minutes_20240731",
      "minutes_20230503",
      "minutes_20240918"
     ]
@@ -702,10 +703,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20241218",
+     "minutes_20241218",
      "minutes_20240612",
      "minutes_20241218",
-     "minutes_20230201",
-     "minutes_20241218"
+     "minutes_20230201"
     ]
    }
   },
@@ -741,7 +742,7 @@
     "retrieved": [
      "minutes_20250730",
      "minutes_20220316",
-     "minutes_20220504",
+     "minutes_20260128",
      "minutes_20221102",
      "minutes_20241218"
     ]
@@ -779,8 +780,8 @@
     "retrieved": [
      "minutes_20230322",
      "minutes_20230201",
-     "minutes_20230201",
      "minutes_20220316",
+     "minutes_20230201",
      "minutes_20220504"
     ]
    }
@@ -816,10 +817,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20211215",
-     "minutes_20231213",
      "minutes_20240501",
+     "minutes_20231213",
      "minutes_20240320",
-     "minutes_20220504"
+     "minutes_20240320"
     ]
    }
   },
@@ -865,8 +866,8 @@
     "hit": true,
     "retrieved": [
      "minutes_20210922",
-     "minutes_20210428",
      "minutes_20210728",
+     "minutes_20210428",
      "minutes_20210127",
      "minutes_20210616"
     ]
@@ -905,8 +906,8 @@
      "minutes_20260318",
      "minutes_20260729",
      "minutes_20241107",
-     "minutes_20251029",
-     "minutes_20260729"
+     "minutes_20260318",
+     "minutes_20251029"
     ]
    }
   },
@@ -941,10 +942,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20210428",
-     "minutes_20211215",
      "minutes_20210616",
-     "minutes_20210728",
-     "minutes_20210428"
+     "minutes_20211215",
+     "minutes_20260128",
+     "minutes_20210728"
     ]
    }
   },
@@ -980,8 +981,8 @@
     "retrieved": [
      "minutes_20210127",
      "minutes_20260128",
-     "minutes_20260617",
      "minutes_20230201",
+     "minutes_20250129",
      "minutes_20250129"
     ]
    }
@@ -1018,10 +1019,10 @@
     "hit": false,
     "retrieved": [
      "minutes_20240612",
-     "minutes_20240731",
      "minutes_20240131",
+     "minutes_20240731",
      "minutes_20240320",
-     "minutes_20240918"
+     "minutes_20250319"
     ]
    }
   },
@@ -1059,8 +1060,8 @@
      "minutes_20241218",
      "minutes_20241107",
      "minutes_20240918",
-     "minutes_20250917",
-     "minutes_20251029"
+     "minutes_20251029",
+     "minutes_20231213"
     ]
    }
   },
@@ -1096,10 +1097,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20251210",
-     "minutes_20260729",
      "statement_20260916",
+     "minutes_20260729",
      "minutes_20260916",
-     "minutes_20220316"
+     "minutes_20251029"
     ]
    }
   },
@@ -1137,8 +1138,8 @@
      "minutes_20230614",
      "minutes_20240501",
      "minutes_20240320",
-     "minutes_20240131",
-     "minutes_20240731"
+     "minutes_20240731",
+     "minutes_20220316"
     ]
    }
   },
@@ -1175,8 +1176,8 @@
     "retrieved": [
      "minutes_20220615",
      "minutes_20220615",
-     "minutes_20260916",
      "minutes_20220316",
+     "minutes_20260916",
      "minutes_20220316"
     ]
    }
@@ -1213,10 +1214,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20260916",
-     "minutes_20251029",
      "minutes_20260729",
-     "minutes_20240731",
-     "minutes_20250319"
+     "minutes_20251029",
+     "minutes_20260617",
+     "minutes_20260729"
     ]
    }
   },
@@ -1250,11 +1251,11 @@
    "hybrid": {
     "hit": true,
     "retrieved": [
-     "minutes_20220126",
-     "minutes_20231101",
      "statement_20261028",
+     "minutes_20220126",
      "minutes_20210428",
-     "minutes_20260318"
+     "minutes_20231101",
+     "minutes_20210317"
     ]
    }
   },
@@ -1291,9 +1292,9 @@
     "retrieved": [
      "minutes_20260729",
      "minutes_20260617",
-     "minutes_20250730",
-     "minutes_20260429",
-     "minutes_20260729"
+     "minutes_20260318",
+     "minutes_20260729",
+     "minutes_20260916"
     ]
    }
   },
@@ -1329,10 +1330,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20260916",
-     "minutes_20250917",
-     "minutes_20260617",
      "minutes_20220921",
-     "minutes_20230920"
+     "minutes_20260617",
+     "minutes_20250917",
+     "minutes_20210428"
     ]
    }
   },
@@ -1371,7 +1372,7 @@
      "minutes_20230503",
      "minutes_20230503",
      "minutes_20231101",
-     "minutes_20240131"
+     "minutes_20230920"
     ]
    }
   },
@@ -1403,13 +1404,13 @@
     ]
    },
    "hybrid": {
-    "hit": false,
+    "hit": true,
     "retrieved": [
      "minutes_20250618",
-     "minutes_20221214",
+     "minutes_20250507",
+     "minutes_20230322",
      "minutes_20250730",
-     "minutes_20251210",
-     "minutes_20260429"
+     "minutes_20210127"
     ]
    }
   },
@@ -1451,8 +1452,8 @@
      "minutes_20240918",
      "minutes_20260617",
      "minutes_20260916",
-     "minutes_20260429",
-     "minutes_20241107"
+     "minutes_20241107",
+     "minutes_20240320"
     ]
    }
   },
@@ -1494,10 +1495,10 @@
     "hit": true,
     "retrieved": [
      "minutes_20210728",
-     "minutes_20210728",
      "minutes_20260128",
-     "minutes_20230726",
-     "minutes_20241107"
+     "minutes_20210728",
+     "minutes_20220504",
+     "minutes_20230726"
     ]
    }
   },
@@ -1538,8 +1539,8 @@
      "minutes_20260729",
      "minutes_20220504",
      "minutes_20220615",
-     "minutes_20250319",
-     "minutes_20221214"
+     "minutes_20221214",
+     "minutes_20230322"
     ]
    }
   },
@@ -1577,8 +1578,8 @@
      "minutes_20261028",
      "minutes_20251029",
      "minutes_20251210",
-     "minutes_20260128",
-     "minutes_20251029"
+     "minutes_20251029",
+     "minutes_20260128"
     ]
    }
   },
@@ -1617,7 +1618,7 @@
      "minutes_20210428",
      "minutes_20210127",
      "minutes_20211215",
-     "minutes_20211103"
+     "minutes_20220126"
     ]
    }
   }
