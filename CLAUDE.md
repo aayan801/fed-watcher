@@ -12,7 +12,9 @@ RAG tool over FOMC statements and minutes (2021 onwards). Portfolio project for 
 ## Layout
 - `src/download.py`: fetches FOMC docs into `data/raw/*.json` (`doc_id`, `kind`, `date`, `url`, `text`)
 - `src/chunk.py`: paragraph-aware chunking with overlap
+- `src/retrieve.py`: BM25, embeddings (all-MiniLM-L6-v2 + faiss) and hybrid (RRF) search; one `normalize()` for questions and chunks; embeddings cached in `data/index/`
 - `tests/test_chunk.py`: chunking contract
+- `tests/test_retrieve.py`: retrieval tests (fake encoder, no model download)
 
 ## Plan
 1. Chunking

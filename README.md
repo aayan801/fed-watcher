@@ -17,5 +17,6 @@ Ask questions about Federal Reserve (FOMC) policy statements and minutes, and ge
 ```bash
 pip install -r requirements.txt
 python src/download.py
+python src/retrieve.py "How worried were officials about AI-related debt?" --method hybrid
 pytest -q
 ```
