@@ -161,6 +161,36 @@ def test_embedding_model_sees_header():
     assert seen[0] == "FOMC minutes, 2026-01-01: " + TEXTS[0]
 
 
+MIXED = [dict(c, kind="statement" if i in (3, 4) else "minutes") for i, c in enumerate(CHUNKS)]
+
+
+def test_statement_slots_reserve_places_for_statements():
+    r = Retriever(MIXED, encoder=fake_encoder, cache_dir=None, statement_slots=2)
+    # minutes chunk 0 matches best; statements 3 and 4 match only weakly (one word each)
+    q = "inflation prices rose sharply, bank, yields"
+    for method in ("bm25", "embeddings", "hybrid"):
+        hits = r.search(q, method=method, k=3)
+        kinds = [h["kind"] for h in hits]
+        assert kinds[:2] == ["statement", "statement"], method   # 2 statements first, even if weaker
+        assert kinds[2:] == ["minutes"] * len(kinds[2:]), method
+        assert [h["rank"] for h in hits] == list(range(1, len(hits) + 1))
+    assert r.search(q, method="hybrid", k=1)[0]["kind"] == "statement"
+    # BM25 never returns chunks with no shared words, so a statement slot can stay empty
+    assert [h["kind"] for h in r.search("inflation prices", method="bm25", k=3)] == ["minutes"]
+
+
+def test_statement_slots_fill_from_minutes_when_statements_run_out():
+    r = Retriever(MIXED, encoder=fake_encoder, cache_dir=None, statement_slots=4)
+    hits = r.search("inflation", method="embeddings", k=5)
+    assert [h["kind"] for h in hits].count("statement") == 2 and len(hits) == 5
+
+
+def test_no_split_by_default_matches_plain_ranking():
+    plain = Retriever(MIXED, encoder=fake_encoder, cache_dir=None, statement_slots=0)
+    top = plain.search("inflation prices", method="embeddings", k=1)[0]
+    assert top["chunk_id"] == "d#0" and top["kind"] == "minutes"
+
+
 def test_unknown_method(retriever):
     with pytest.raises(ValueError):
         retriever.search("rates", method="tfidf")

@@ -2,7 +2,8 @@
  "settings": {
   "model": "BAAI/bge-small-en-v1.5",
   "bm25_weight": 2.0,
-  "date_header": false
+  "date_header": false,
+  "statement_slots": 0
  },
  "k": 5,
  "n_questions": 40,

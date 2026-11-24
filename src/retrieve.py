@@ -40,6 +40,7 @@ METHODS = ("bm25", "embeddings", "hybrid")
 RRF_K = 60  # standard constant from the original RRF paper; damps the gap between rank 1 and rank 2
 BM25_WEIGHT = 2.0  # hybrid weight of BM25 relative to embeddings; chosen in eval/experiments.md (#2)
 DATE_HEADER = False  # put "FOMC <kind>, <date>:" in front of each chunk for search; see experiments.md (#3)
+STATEMENT_SLOTS = 0  # top-k = this many best statement chunks + the rest from minutes; see experiments.md (#5)
 
 Encoder = Callable[[list[str]], np.ndarray]
 
@@ -102,10 +103,13 @@ def index_text(chunk: dict, date_header: bool = DATE_HEADER) -> str:
 class Retriever:
     def __init__(self, chunks: list[dict], encoder: Encoder | None = None, cache_dir: Path | None = CACHE,
                  model_name: str = MODEL_NAME, query_prefix: str | None = None,
-                 bm25_weight: float = BM25_WEIGHT, date_header: bool = DATE_HEADER):
+                 bm25_weight: float = BM25_WEIGHT, date_header: bool = DATE_HEADER,
+                 statement_slots: int = STATEMENT_SLOTS):
         if not chunks:
             raise ValueError("no chunks to search")
         self.chunks = chunks
+        self.statement_slots = statement_slots  # of the k results, this many come from statements (0 = no split)
+        self._by_kind = {kind: {i for i, c in enumerate(chunks) if c["kind"] == kind} for kind in ("statement", "minutes")}
         self.date_header = date_header
         self._texts = [index_text(c, date_header) for c in chunks]  # what BM25 and the model see
         self.bm25 = BM25Okapi([tokenize(t) for t in self._texts])
@@ -149,28 +153,45 @@ class Retriever:
         return self._index
 
     # ---- rankings (lists of chunk indexes, best first) ------------------------------------------
-    def rank_bm25(self, question: str, n: int) -> list[int]:
+    # `allowed`: only rank these chunk indexes (None = all). Used to search statements and minutes separately.
+    def rank_bm25(self, question: str, n: int, allowed: set[int] | None = None) -> list[int]:
         scores = self.bm25.get_scores(tokenize(question))
-        order = np.argsort(-scores, kind="stable")
-        return [int(i) for i in order[:n] if scores[i] > 0]  # no shared words -> not a match
+        order = (int(i) for i in np.argsort(-scores, kind="stable"))
+        # no shared words -> not a match
+        return [i for i in order if scores[i] > 0 and (allowed is None or i in allowed)][:n]
 
-    def rank_embeddings(self, question: str, n: int) -> list[int]:
+    def rank_embeddings(self, question: str, n: int, allowed: set[int] | None = None) -> list[int]:
         index = self._faiss_index()
-        _, ids = index.search(self._encode([question], is_query=True), min(n, index.ntotal))
-        return [int(i) for i in ids[0] if i >= 0]  # faiss pads with -1 when it has fewer results
+        # with a filter, rank everything and filter afterwards: exact search over 2,465 vectors is cheap
+        depth = index.ntotal if allowed is not None else min(n, index.ntotal)
+        _, ids = index.search(self._encode([question], is_query=True), depth)
+        # faiss pads with -1 when it has fewer results
+        return [int(i) for i in ids[0] if i >= 0 and (allowed is None or int(i) in allowed)][:n]
+
+    def _rank(self, question: str, method: str, n: int, allowed: set[int] | None) -> list[int]:
+        if method == "bm25":
+            return self.rank_bm25(question, n, allowed)
+        if method == "embeddings":
+            return self.rank_embeddings(question, n, allowed)
+        # fuse deeper lists than n, so a chunk ranked 8th by both methods can still make the top 5
+        depth = max(50, n)
+        rankings = [self.rank_bm25(question, depth, allowed), self.rank_embeddings(question, depth, allowed)]
+        return rrf(rankings, weights=[self.bm25_weight, 1.0])[:n]
 
     def search(self, question: str, method: str = "hybrid", k: int = 5) -> list[dict]:
         if method not in METHODS:
             raise ValueError(f"method must be one of {METHODS}, got {method!r}")
-        if method == "bm25":
-            order = self.rank_bm25(question, k)
-        elif method == "embeddings":
-            order = self.rank_embeddings(question, k)
+        if not self.statement_slots:
+            order = self._rank(question, method, k, None)
         else:
-            # fuse deeper lists than k, so a chunk ranked 8th by both methods can still make the top 5
-            depth = max(50, k)
-            rankings = [self.rank_bm25(question, depth), self.rank_embeddings(question, depth)]
-            order = rrf(rankings, weights=[self.bm25_weight, 1.0])[:k]
+            # Statements (120 chunks) hold the decisions and dissents but get crowded out by minutes
+            # (2,345 chunks), so rank each kind on its own and reserve slots for statements.
+            n_stmt = min(self.statement_slots, k)
+            stmts = self._rank(question, method, n_stmt, self._by_kind["statement"])
+            mins = self._rank(question, method, k - len(stmts), self._by_kind["minutes"])
+            if len(stmts) + len(mins) < k:  # one kind ran short: fill from the other
+                stmts = self._rank(question, method, k - len(mins), self._by_kind["statement"])
+            order = stmts + mins
         return [dict(self.chunks[i], rank=r) for r, i in enumerate(order, start=1)]
 
 

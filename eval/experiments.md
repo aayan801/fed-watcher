@@ -19,6 +19,7 @@ Types with n < 6 (fraction, dash, accent, date) move 20-50 points per question; 
 | 2 | Weighted hybrid: BM25 counts 2x in RRF | 82% | 62% | 88% | 57% | 32% | 52% |
 | 3 | Date header "FOMC minutes, 2024-09-18:" on each chunk (**not kept**: off by default) | 82% | 62% | 82% | 60% | 32% | 50% |
 | 4 | Chunk-level eval added (no retrieval change; same as #2) | 82% | 62% | 88% | 57% | 32% | 52% |
+| 5 | Split: top 2 statements + top 3 minutes (**not kept**: off by default) | 80% | 57% | 78% | 62% | 38% | 52% |
 
 ## Hybrid by question type
 
@@ -30,6 +31,7 @@ Document level:
 | 1 | 92% | 67% | 80% | 100% | 75% | 100% |
 | 2 | 100% | 67% | 80% | 100% | 100% | 100% |
 | 3 | 92% | 58% | 80% | 100% | 100% | 100% |
+| 5 | 92% | 42% | 80% | 100% | 100% | 100% |
 
 Chunk level:
 
@@ -39,6 +41,7 @@ Chunk level:
 | 1 | 67% | 33% | 60% | 20% | 75% | 0% |
 | 2 | 75% | 33% | 60% | 20% | 100% | 0% |
 | 3 | 67% | 25% | 60% | 40% | 100% | 0% |
+| 5 | 83% | 25% | 60% | 20% | 100% | 0% |
 
 ## Notes
 
@@ -57,3 +60,8 @@ Chunk level:
   answer* for only 52%. Of its 19 chunk-level misses, 14 had the right document and the wrong chunk.
   That matches the answer run, where 2 of 4 answerable questions came back "not found in the documents".
   Dissents and decisions sit in short statements (120 of 2,465 chunks), which minutes chunks crowd out.
+- **4 → 5, statement slots:** reserving 2 of the 5 places for statements gained the questions that only a
+  statement answers well (q03 end of runoff, q04 redemption cap, q12 Middle East) but lost three answered
+  only in the minutes (q09 Bullard's reasons, q11 debt limit, q23 repo facility), because minutes now get
+  3 places instead of 5. Hybrid chunk level stays 52%; doc level drops 88% → 78%. With 1 statement slot:
+  doc 82%, chunk 50%. Not kept on its own (`--statement-slots`, default 0); re-tested with the date filter.
