@@ -3,14 +3,15 @@
   "model": "BAAI/bge-small-en-v1.5",
   "bm25_weight": 2.0,
   "date_header": false,
-  "statement_slots": 0
+  "statement_slots": 0,
+  "date_filter": true
  },
  "k": 5,
  "n_questions": 40,
  "overall": {
-  "bm25": 0.825,
-  "embeddings": 0.625,
-  "hybrid": 0.875
+  "bm25": 0.85,
+  "embeddings": 0.725,
+  "hybrid": 0.9
  },
  "by_type": {
   "keyword": {
@@ -21,20 +22,20 @@
   },
   "paraphrase": {
    "n": 12,
-   "bm25": 0.5,
-   "embeddings": 0.5833333333333334,
+   "bm25": 0.5833333333333334,
+   "embeddings": 0.6666666666666666,
    "hybrid": 0.6666666666666666
   },
   "fraction": {
    "n": 5,
    "bm25": 0.8,
-   "embeddings": 0.8,
-   "hybrid": 0.8
+   "embeddings": 1.0,
+   "hybrid": 1.0
   },
   "dash": {
    "n": 5,
    "bm25": 1.0,
-   "embeddings": 0.6,
+   "embeddings": 0.8,
    "hybrid": 1.0
   },
   "accent": {
@@ -46,39 +47,39 @@
   "date": {
    "n": 2,
    "bm25": 1.0,
-   "embeddings": 0.5,
+   "embeddings": 1.0,
    "hybrid": 1.0
   }
  },
  "overall_chunk": {
-  "bm25": 0.575,
-  "embeddings": 0.325,
-  "hybrid": 0.525
+  "bm25": 0.675,
+  "embeddings": 0.425,
+  "hybrid": 0.675
  },
  "by_type_chunk": {
   "keyword": {
    "n": 12,
-   "bm25": 0.8333333333333334,
+   "bm25": 0.9166666666666666,
    "embeddings": 0.5833333333333334,
    "hybrid": 0.75
   },
   "paraphrase": {
    "n": 12,
-   "bm25": 0.25,
-   "embeddings": 0.3333333333333333,
-   "hybrid": 0.3333333333333333
+   "bm25": 0.3333333333333333,
+   "embeddings": 0.4166666666666667,
+   "hybrid": 0.4166666666666667
   },
   "fraction": {
    "n": 5,
    "bm25": 0.8,
-   "embeddings": 0.2,
-   "hybrid": 0.6
+   "embeddings": 0.4,
+   "hybrid": 0.8
   },
   "dash": {
    "n": 5,
-   "bm25": 0.2,
-   "embeddings": 0.0,
-   "hybrid": 0.2
+   "bm25": 0.6,
+   "embeddings": 0.4,
+   "hybrid": 0.8
   },
   "accent": {
    "n": 4,
@@ -90,7 +91,7 @@
    "n": 2,
    "bm25": 0.5,
    "embeddings": 0.0,
-   "hybrid": 0.0
+   "hybrid": 0.5
   }
  },
  "questions": [
@@ -276,33 +277,33 @@
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20220615#45",
      "minutes_20220316#29",
-     "minutes_20220504#17",
      "minutes_20220316#46",
-     "minutes_20220504#47"
+     "minutes_20220316#24",
+     "minutes_20220316#40",
+     "minutes_20220316#34"
     ]
    },
    "embeddings": {
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20221214#27",
-     "minutes_20230201#52",
      "minutes_20220316#22",
      "minutes_20220316#30",
-     "minutes_20220615#45"
+     "minutes_20220316#34",
+     "minutes_20220316#24",
+     "minutes_20220316#32"
     ]
    },
    "hybrid": {
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20220615#45",
      "minutes_20220316#46",
      "minutes_20220316#24",
-     "minutes_20220615#15",
-     "minutes_20220316#34"
+     "minutes_20220316#34",
+     "minutes_20220316#40",
+     "minutes_20220316#29"
     ]
    }
   },
@@ -317,33 +318,33 @@
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20220126#34",
      "minutes_20211215#37",
-     "minutes_20220126#56",
-     "minutes_20220316#35",
-     "minutes_20220126#48"
+     "minutes_20211215#28",
+     "minutes_20211215#4",
+     "minutes_20211215#50",
+     "minutes_20211215#41"
     ]
    },
    "embeddings": {
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20220316#35",
-     "minutes_20220316#21",
-     "minutes_20220126#60",
-     "minutes_20220126#47",
-     "minutes_20211215#4"
+     "minutes_20211215#4",
+     "minutes_20211215#37",
+     "minutes_20211215#34",
+     "minutes_20211215#50",
+     "minutes_20211215#25"
     ]
    },
    "hybrid": {
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20220316#35",
      "minutes_20211215#37",
-     "minutes_20220126#56",
-     "minutes_20220316#21",
-     "minutes_20220126#47"
+     "minutes_20211215#4",
+     "minutes_20211215#28",
+     "minutes_20211215#50",
+     "minutes_20211215#34"
     ]
    }
   },
@@ -440,35 +441,35 @@
    ],
    "bm25": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20220316#52",
      "minutes_20220316#0",
-     "minutes_20221214#0",
-     "minutes_20220615#0",
-     "minutes_20220727#0"
+     "minutes_20220316#51",
+     "minutes_20220316#54",
+     "statement_20220316#1"
     ]
    },
    "embeddings": {
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20220615#51",
      "minutes_20220316#51",
-     "statement_20221102#2",
-     "statement_20220921#1",
-     "statement_20220727#1"
+     "statement_20220316#1",
+     "minutes_20220316#45",
+     "minutes_20220316#44",
+     "minutes_20220316#52"
     ]
    },
    "hybrid": {
     "hit": true,
     "chunk_hit": true,
     "retrieved": [
-     "minutes_20221102#48",
-     "minutes_20220504#49",
+     "minutes_20220316#52",
      "minutes_20220316#51",
-     "minutes_20230322#0",
-     "minutes_20220921#49"
+     "minutes_20220316#0",
+     "statement_20220316#1",
+     "minutes_20220316#48"
     ]
    }
   },
@@ -567,11 +568,11 @@
     "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20260429#0",
      "minutes_20260318#0",
-     "minutes_20260729#0",
-     "minutes_20260617#0",
-     "minutes_20260318#26"
+     "minutes_20260318#26",
+     "minutes_20260318#28",
+     "minutes_20260318#25",
+     "minutes_20260318#12"
     ]
    },
    "embeddings": {
@@ -581,8 +582,8 @@
      "minutes_20260318#24",
      "minutes_20260318#0",
      "minutes_20260318#26",
-     "minutes_20260429#3",
-     "minutes_20260429#2"
+     "minutes_20260318#12",
+     "minutes_20260318#17"
     ]
    },
    "hybrid": {
@@ -591,9 +592,9 @@
     "retrieved": [
      "minutes_20260318#0",
      "minutes_20260318#26",
-     "minutes_20260729#0",
-     "minutes_20260429#3",
-     "minutes_20260617#0"
+     "minutes_20260318#24",
+     "minutes_20260318#25",
+     "minutes_20260318#12"
     ]
    }
   },
@@ -732,35 +733,35 @@
    ],
    "bm25": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20240918#3",
      "minutes_20240918#2",
-     "minutes_20250917#1",
-     "minutes_20251029#14",
-     "minutes_20221102#10"
+     "minutes_20240918#37",
+     "minutes_20240918#15",
+     "minutes_20240918#36"
     ]
    },
    "embeddings": {
-    "hit": false,
-    "chunk_hit": false,
+    "hit": true,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20240612#6",
-     "minutes_20250917#34",
-     "minutes_20241107#39",
-     "minutes_20241218#1",
-     "minutes_20251210#34"
+     "minutes_20240918#37",
+     "minutes_20240918#36",
+     "minutes_20240918#3",
+     "minutes_20240918#31",
+     "minutes_20240918#0"
     ]
    },
    "hybrid": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20250917#1",
      "minutes_20240918#3",
-     "minutes_20240731#2",
-     "minutes_20230503#6",
-     "minutes_20240918#37"
+     "minutes_20240918#37",
+     "minutes_20240918#36",
+     "minutes_20240918#15",
+     "minutes_20240918#2"
     ]
    }
   },
@@ -773,25 +774,25 @@
     "statement_20241218"
    ],
    "bm25": {
-    "hit": false,
+    "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20210922#24",
-     "minutes_20220316#8",
-     "minutes_20210127#34",
-     "minutes_20260128#26",
-     "minutes_20231101#12"
+     "minutes_20241218#37",
+     "minutes_20241218#2",
+     "minutes_20241218#0",
+     "minutes_20241218#14",
+     "minutes_20241218#42"
     ]
    },
    "embeddings": {
     "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20240612#6",
-     "minutes_20230201#9",
      "minutes_20241218#0",
      "minutes_20241218#37",
-     "minutes_20210728#16"
+     "minutes_20241218#1",
+     "minutes_20241218#14",
+     "minutes_20241218#2"
     ]
    },
    "hybrid": {
@@ -800,9 +801,9 @@
     "retrieved": [
      "minutes_20241218#37",
      "minutes_20241218#0",
-     "minutes_20240612#6",
      "minutes_20241218#2",
-     "minutes_20230201#9"
+     "minutes_20241218#14",
+     "minutes_20241218#1"
     ]
    }
   },
@@ -1118,31 +1119,31 @@
     "retrieved": [
      "minutes_20231101#43",
      "minutes_20231101#39",
-     "minutes_20240612#36",
-     "minutes_20240320#42",
-     "minutes_20240131#39"
+     "minutes_20231101#38",
+     "minutes_20231101#42",
+     "minutes_20231101#33"
     ]
    },
    "embeddings": {
-    "hit": false,
-    "chunk_hit": false,
+    "hit": true,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20260429#31",
-     "minutes_20240731#32",
-     "minutes_20240131#39",
-     "minutes_20240612#36",
-     "minutes_20230201#49"
+     "minutes_20231101#38",
+     "minutes_20231101#42",
+     "statement_20231101#1",
+     "minutes_20231101#33",
+     "minutes_20231101#43"
     ]
    },
    "hybrid": {
-    "hit": false,
-    "chunk_hit": false,
+    "hit": true,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20240612#36",
-     "minutes_20240131#39",
-     "minutes_20240731#32",
-     "minutes_20240320#42",
-     "minutes_20250319#35"
+     "minutes_20231101#43",
+     "minutes_20231101#38",
+     "minutes_20231101#39",
+     "minutes_20231101#42",
+     "minutes_20231101#33"
     ]
    }
   },
@@ -1159,10 +1160,10 @@
     "chunk_hit": true,
     "retrieved": [
      "minutes_20241218#37",
-     "minutes_20240918#36",
-     "minutes_20221214#7",
      "minutes_20241218#31",
-     "minutes_20250730#37"
+     "minutes_20241218#25",
+     "minutes_20241218#42",
+     "statement_20241218#0"
     ]
    },
    "embeddings": {
@@ -1170,10 +1171,10 @@
     "chunk_hit": true,
     "retrieved": [
      "minutes_20241218#37",
-     "minutes_20250917#34",
-     "minutes_20241107#39",
-     "minutes_20240918#37",
-     "minutes_20250319#17"
+     "minutes_20241218#0",
+     "minutes_20241218#35",
+     "minutes_20241218#31",
+     "statement_20241218#0"
     ]
    },
    "hybrid": {
@@ -1181,10 +1182,10 @@
     "chunk_hit": true,
     "retrieved": [
      "minutes_20241218#37",
-     "minutes_20241107#39",
-     "minutes_20240918#36",
-     "minutes_20251029#39",
-     "minutes_20231213#15"
+     "minutes_20241218#31",
+     "statement_20241218#0",
+     "minutes_20241218#35",
+     "minutes_20241218#25"
     ]
    }
   },
@@ -1324,35 +1325,35 @@
    ],
    "bm25": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20260729#32",
-     "minutes_20260429#35",
-     "minutes_20261028#32",
      "minutes_20260729#29",
-     "minutes_20260916#27"
+     "minutes_20260729#0",
+     "statement_20260729#0",
+     "minutes_20260729#30"
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "statement_20220615#2",
-     "minutes_20260916#27",
-     "minutes_20220615#51",
-     "statement_20251029#2",
-     "statement_20220504#2"
+     "minutes_20260729#32",
+     "minutes_20260729#0",
+     "minutes_20260729#31",
+     "minutes_20260729#14",
+     "minutes_20260729#28"
     ]
    },
    "hybrid": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20260916#27",
      "minutes_20260729#32",
-     "minutes_20251029#44",
-     "minutes_20260617#28",
-     "minutes_20260729#0"
+     "minutes_20260729#0",
+     "minutes_20260729#29",
+     "statement_20260729#0",
+     "minutes_20260729#31"
     ]
    }
   },
@@ -1407,35 +1408,35 @@
    ],
    "bm25": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20260729#0",
-     "minutes_20260429#0",
-     "minutes_20260617#29",
-     "minutes_20260916#27",
-     "minutes_20260318#34"
+     "minutes_20260729#32",
+     "minutes_20260729#29",
+     "minutes_20260729#30",
+     "minutes_20260729#28"
     ]
    },
    "embeddings": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20250618#40",
-     "minutes_20250730#0",
-     "minutes_20260429#36",
      "minutes_20260729#0",
-     "minutes_20250129#48"
+     "minutes_20260729#28",
+     "minutes_20260729#32",
+     "minutes_20260729#29",
+     "minutes_20260729#27"
     ]
    },
    "hybrid": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20260729#0",
-     "minutes_20260617#29",
-     "minutes_20260318#34",
      "minutes_20260729#32",
-     "minutes_20260916#27"
+     "minutes_20260729#29",
+     "minutes_20260729#28",
+     "minutes_20260729#26"
     ]
    }
   },
@@ -1452,21 +1453,21 @@
     "chunk_hit": false,
     "retrieved": [
      "minutes_20260916#0",
-     "minutes_20260729#32",
      "minutes_20260916#27",
-     "minutes_20261028#32",
-     "minutes_20220921#50"
+     "minutes_20260916#32",
+     "minutes_20260916#1",
+     "minutes_20260916#25"
     ]
    },
    "embeddings": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20260916#0",
-     "minutes_20250917#0",
-     "minutes_20240612#42",
-     "minutes_20240131#46",
-     "minutes_20230920#44"
+     "minutes_20260916#24",
+     "minutes_20260916#14",
+     "minutes_20260916#25",
+     "minutes_20260916#27"
     ]
    },
    "hybrid": {
@@ -1474,10 +1475,10 @@
     "chunk_hit": false,
     "retrieved": [
      "minutes_20260916#0",
-     "minutes_20220921#50",
-     "minutes_20260617#0",
-     "minutes_20250917#0",
-     "minutes_20210428#55"
+     "minutes_20260916#27",
+     "minutes_20260916#32",
+     "minutes_20260916#25",
+     "minutes_20260916#1"
     ]
    }
   },
@@ -1494,32 +1495,32 @@
     "chunk_hit": false,
     "retrieved": [
      "minutes_20230503#53",
-     "minutes_20230614#43",
-     "minutes_20230322#48",
-     "minutes_20230201#55",
-     "minutes_20231101#43"
+     "minutes_20230503#0",
+     "minutes_20230503#54",
+     "minutes_20230503#9",
+     "minutes_20230503#35"
     ]
    },
    "embeddings": {
     "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20250618#40",
      "minutes_20230503#0",
-     "minutes_20250507#0",
-     "minutes_20250507#44",
-     "minutes_20260429#36"
+     "minutes_20230503#53",
+     "minutes_20230503#49",
+     "statement_20230503#2",
+     "minutes_20230503#52"
     ]
    },
    "hybrid": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
-     "minutes_20230614#43",
      "minutes_20230503#53",
      "minutes_20230503#0",
-     "minutes_20231101#43",
-     "minutes_20230920#44"
+     "minutes_20230503#9",
+     "minutes_20230503#54",
+     "minutes_20230503#51"
     ]
    }
   },
@@ -1716,10 +1717,10 @@
     "chunk_hit": true,
     "retrieved": [
      "minutes_20261028#32",
-     "minutes_20260429#35",
      "minutes_20261028#0",
-     "minutes_20251029#44",
-     "minutes_20260729#32"
+     "minutes_20261028#30",
+     "statement_20261028#0",
+     "minutes_20261028#27"
     ]
    },
    "embeddings": {
@@ -1727,21 +1728,21 @@
     "chunk_hit": false,
     "retrieved": [
      "minutes_20261028#0",
-     "minutes_20260128#0",
-     "minutes_20220615#51",
-     "minutes_20260429#36",
-     "minutes_20251210#34"
+     "minutes_20261028#33",
+     "minutes_20261028#27",
+     "minutes_20261028#17",
+     "minutes_20261028#29"
     ]
    },
    "hybrid": {
     "hit": true,
-    "chunk_hit": false,
+    "chunk_hit": true,
     "retrieved": [
      "minutes_20261028#0",
-     "minutes_20251029#44",
-     "minutes_20251210#34",
-     "minutes_20251029#0",
-     "minutes_20260128#0"
+     "minutes_20261028#32",
+     "minutes_20261028#27",
+     "minutes_20261028#30",
+     "minutes_20261028#17"
     ]
    }
   },
@@ -1757,33 +1758,33 @@
     "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20210317#59",
      "minutes_20210127#79",
-     "minutes_20211215#59",
-     "minutes_20220126#81",
-     "minutes_20210428#55"
+     "minutes_20210127#53",
+     "minutes_20210127#23",
+     "minutes_20210127#22",
+     "minutes_20210127#0"
     ]
    },
    "embeddings": {
-    "hit": false,
+    "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20260318#18",
-     "minutes_20210317#59",
-     "minutes_20210428#55",
-     "minutes_20220126#26",
-     "minutes_20210922#57"
+     "minutes_20210127#79",
+     "minutes_20210127#23",
+     "minutes_20210127#53",
+     "minutes_20210127#0",
+     "minutes_20210127#78"
     ]
    },
    "hybrid": {
     "hit": true,
     "chunk_hit": false,
     "retrieved": [
-     "minutes_20210317#59",
-     "minutes_20210428#55",
      "minutes_20210127#79",
-     "minutes_20211215#59",
-     "minutes_20220126#81"
+     "minutes_20210127#53",
+     "minutes_20210127#23",
+     "minutes_20210127#0",
+     "minutes_20210127#22"
     ]
    }
   }

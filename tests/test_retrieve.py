@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.retrieve import Retriever, index_text, normalize, rrf, tokenize
+from src.retrieve import Retriever, in_month, index_text, months_named, normalize, rrf, tokenize
 
 TEXTS = [
     "Inflation remains elevated and consumer prices rose sharply.",            # 0 inflation
@@ -189,6 +189,55 @@ def test_no_split_by_default_matches_plain_ranking():
     plain = Retriever(MIXED, encoder=fake_encoder, cache_dir=None, statement_slots=0)
     top = plain.search("inflation prices", method="embeddings", k=1)[0]
     assert top["chunk_id"] == "d#0" and top["kind"] == "minutes"
+
+
+@pytest.mark.parametrize("question, expected", [
+    ("Why did the Fed cut in September 2024?", {(2024, 9)}),
+    ("What was decided at the July 28-29, 2026 meeting?", {(2026, 7)}),
+    ("the May 2–3, 2023 meeting", {(2023, 5)}),
+    ("Sept. 2024 and Dec 2024", {(2024, 9), (2024, 12)}),
+    ("What happened in early 2025?", set()),        # no month named
+    ("rates in 2023", set()),                       # bare year: no filter
+    ("Which meeting approved a 10-2 vote?", set()),
+])
+def test_months_named(question, expected):
+    assert months_named(question) == expected
+
+
+def test_in_month_handles_meetings_that_span_two_months():
+    assert in_month("2024-09-18", 2024, 9)
+    assert in_month("2023-02-01", 2023, 1) and in_month("2023-02-01", 2023, 2)   # Jan 31-Feb 1 meeting
+    assert in_month("2022-01-01", 2021, 12)                                       # year boundary
+    assert not in_month("2024-09-18", 2024, 8) and not in_month("2024-10-02", 2024, 9)
+
+
+DATED = [dict(c, date=d) for c, d in zip(CHUNKS, ["2024-09-18", "2024-07-31", "2024-09-18", "2023-03-22", "2024-11-07"])]
+
+
+def test_date_filter_searches_only_the_named_meeting():
+    r = Retriever(DATED, encoder=fake_encoder, cache_dir=None, date_filter=True)
+    for method in ("bm25", "embeddings", "hybrid"):
+        hits = r.search("jobs and the funds rate in September 2024", method=method, k=5)
+        assert hits and all(h["date"] == "2024-09-18" for h in hits), method
+    # mostly about jobs, a bit about inflation: the July jobs chunk wins without the filter,
+    # the September inflation chunk wins with it
+    q = "job gains, unemployment and inflation in September 2024"
+    assert r.search(q, "embeddings", k=1)[0]["chunk_id"] == "d#0"
+    off = Retriever(DATED, encoder=fake_encoder, cache_dir=None, date_filter=False)
+    assert off.search(q, "embeddings", k=1)[0]["chunk_id"] == "d#1"
+
+
+def test_date_filter_falls_back_when_no_meeting_that_month():
+    r = Retriever(DATED, encoder=fake_encoder, cache_dir=None, date_filter=True)
+    assert r.date_scope("rates in June 2019") is None
+    assert len(r.search("bank deposits in June 2019", "embeddings", k=5)) == 5
+
+
+def test_date_filter_combines_with_statement_slots():
+    mixed = [dict(c, kind="statement" if i == 2 else "minutes") for i, c in enumerate(DATED)]
+    r = Retriever(mixed, encoder=fake_encoder, cache_dir=None, date_filter=True, statement_slots=1)
+    hits = r.search("funds rate in September 2024", "hybrid", k=5)
+    assert [h["chunk_id"] for h in hits] == ["d#2", "d#0"]  # Sept statement, then Sept minutes; nothing else
 
 
 def test_unknown_method(retriever):

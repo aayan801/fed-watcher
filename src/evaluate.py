@@ -17,7 +17,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.retrieve import BM25_WEIGHT, DATE_HEADER, METHODS, MODEL_NAME, STATEMENT_SLOTS, Retriever, load_chunks
+from src.retrieve import BM25_WEIGHT, DATE_FILTER, DATE_HEADER, METHODS, MODEL_NAME, STATEMENT_SLOTS, Retriever, load_chunks
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTIONS = ROOT / "eval" / "questions.json"
@@ -102,12 +102,16 @@ def main() -> None:
                     help='search "FOMC <kind>, <date>: <text>" instead of the bare chunk text')
     ap.add_argument("--statement-slots", type=int, default=STATEMENT_SLOTS,
                     help="of the top k, how many come from statements (0 = rank all chunks together)")
+    ap.add_argument("--date-filter", action=argparse.BooleanOptionalAction, default=DATE_FILTER,
+                    help="if the question names a month and year, search only that meeting's chunks")
     args = ap.parse_args()
     questions = json.loads(QUESTIONS.read_text(encoding="utf-8"))
     retriever = Retriever(load_chunks(), model_name=args.model, bm25_weight=args.bm25_weight,
-                          date_header=args.date_header, statement_slots=args.statement_slots)
+                          date_header=args.date_header, statement_slots=args.statement_slots,
+                          date_filter=args.date_filter)
     settings = {"model": retriever.model_name, "bm25_weight": retriever.bm25_weight,
-                "date_header": retriever.date_header, "statement_slots": retriever.statement_slots}
+                "date_header": retriever.date_header, "statement_slots": retriever.statement_slots,
+                "date_filter": retriever.date_filter}
     res = {"settings": settings, **evaluate(retriever, questions, k=args.k)}
     print("settings:", res["settings"])
     RESULTS.write_text(json.dumps(res, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")

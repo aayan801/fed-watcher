@@ -41,6 +41,7 @@ RRF_K = 60  # standard constant from the original RRF paper; damps the gap betwe
 BM25_WEIGHT = 2.0  # hybrid weight of BM25 relative to embeddings; chosen in eval/experiments.md (#2)
 DATE_HEADER = False  # put "FOMC <kind>, <date>:" in front of each chunk for search; see experiments.md (#3)
 STATEMENT_SLOTS = 0  # top-k = this many best statement chunks + the rest from minutes; see experiments.md (#5)
+DATE_FILTER = True  # if the question names a month and year, search only that meeting; see experiments.md (#6)
 
 Encoder = Callable[[list[str]], np.ndarray]
 
@@ -94,6 +95,28 @@ def rrf(rankings: list[list[int]], k: int = RRF_K, weights: list[float] | None =
     return sorted(scores, key=lambda i: (-scores[i], i))
 
 
+MONTHS = {m: i for i, names in enumerate([
+    ("january", "jan"), ("february", "feb"), ("march", "mar"), ("april", "apr"), ("may",), ("june", "jun"),
+    ("july", "jul"), ("august", "aug"), ("september", "sept", "sep"), ("october", "oct"),
+    ("november", "nov"), ("december", "dec")], start=1) for m in names}
+# "September 2024", "Sept. 2024", "July 28-29, 2026", "May 2–3, 2023"
+MONTH_YEAR = re.compile(r"\b(" + "|".join(sorted(MONTHS, key=len, reverse=True)) + r")\.?\s+"
+                        r"(?:\d{1,2}(?:\s*[-–]\s*\d{1,2})?,?\s+)?(20\d\d)\b", re.IGNORECASE)
+
+
+def months_named(question: str) -> set[tuple[int, int]]:
+    """(year, month) pairs the question names explicitly. A bare year or "early 2025" names no month."""
+    return {(int(m[2]), MONTHS[m[1].lower()]) for m in MONTH_YEAR.finditer(question)}
+
+
+def in_month(date: str, year: int, month: int) -> bool:
+    """Is this meeting (stored under its last day, YYYY-MM-DD) in that month? A two-day meeting that
+    ends on the 1st (e.g. January 31-February 1) also counts for the month it started in."""
+    y, m, d = int(date[:4]), int(date[5:7]), int(date[8:10])
+    prev_y, prev_m = (y, m - 1) if m > 1 else (y - 1, 12)
+    return (y, m) == (year, month) or (d == 1 and (prev_y, prev_m) == (year, month))
+
+
 def index_text(chunk: dict, date_header: bool = DATE_HEADER) -> str:
     """The text that gets searched. With a header, the meeting date and document kind become
     searchable words, e.g. "FOMC minutes, 2024-09-18: ...". The chunk's own text is unchanged."""
@@ -104,10 +127,11 @@ class Retriever:
     def __init__(self, chunks: list[dict], encoder: Encoder | None = None, cache_dir: Path | None = CACHE,
                  model_name: str = MODEL_NAME, query_prefix: str | None = None,
                  bm25_weight: float = BM25_WEIGHT, date_header: bool = DATE_HEADER,
-                 statement_slots: int = STATEMENT_SLOTS):
+                 statement_slots: int = STATEMENT_SLOTS, date_filter: bool = DATE_FILTER):
         if not chunks:
             raise ValueError("no chunks to search")
         self.chunks = chunks
+        self.date_filter = date_filter
         self.statement_slots = statement_slots  # of the k results, this many come from statements (0 = no split)
         self._by_kind = {kind: {i for i, c in enumerate(chunks) if c["kind"] == kind} for kind in ("statement", "minutes")}
         self.date_header = date_header
@@ -178,19 +202,35 @@ class Retriever:
         rankings = [self.rank_bm25(question, depth, allowed), self.rank_embeddings(question, depth, allowed)]
         return rrf(rankings, weights=[self.bm25_weight, 1.0])[:n]
 
+    def date_scope(self, question: str) -> set[int] | None:
+        """Chunks from the meeting(s) a question names by month and year; None = no month named (or no
+        chunk from that month, e.g. a typo or a month without a meeting), so search everything."""
+        named = months_named(question)
+        if not named:
+            return None
+        scope = {i for i, c in enumerate(self.chunks) if any(in_month(c["date"], y, m) for y, m in named)}
+        return scope or None
+
     def search(self, question: str, method: str = "hybrid", k: int = 5) -> list[dict]:
         if method not in METHODS:
             raise ValueError(f"method must be one of {METHODS}, got {method!r}")
+        scope = self.date_scope(question) if self.date_filter else None
+
+        def within(kind: str | None) -> set[int] | None:
+            if kind is None:
+                return scope
+            return self._by_kind[kind] if scope is None else self._by_kind[kind] & scope
+
         if not self.statement_slots:
-            order = self._rank(question, method, k, None)
+            order = self._rank(question, method, k, within(None))
         else:
             # Statements (120 chunks) hold the decisions and dissents but get crowded out by minutes
             # (2,345 chunks), so rank each kind on its own and reserve slots for statements.
             n_stmt = min(self.statement_slots, k)
-            stmts = self._rank(question, method, n_stmt, self._by_kind["statement"])
-            mins = self._rank(question, method, k - len(stmts), self._by_kind["minutes"])
+            stmts = self._rank(question, method, n_stmt, within("statement"))
+            mins = self._rank(question, method, k - len(stmts), within("minutes"))
             if len(stmts) + len(mins) < k:  # one kind ran short: fill from the other
-                stmts = self._rank(question, method, k - len(mins), self._by_kind["statement"])
+                stmts = self._rank(question, method, k - len(mins), within("statement"))
             order = stmts + mins
         return [dict(self.chunks[i], rank=r) for r, i in enumerate(order, start=1)]
 

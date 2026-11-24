@@ -20,6 +20,7 @@ Types with n < 6 (fraction, dash, accent, date) move 20-50 points per question; 
 | 3 | Date header "FOMC minutes, 2024-09-18:" on each chunk (**not kept**: off by default) | 82% | 62% | 82% | 60% | 32% | 50% |
 | 4 | Chunk-level eval added (no retrieval change; same as #2) | 82% | 62% | 88% | 57% | 32% | 52% |
 | 5 | Split: top 2 statements + top 3 minutes (**not kept**: off by default) | 80% | 57% | 78% | 62% | 38% | 52% |
+| 6 | Date filter: a question naming a month and year searches only that meeting (on #4) | 85% | 72% | 90% | 68% | 42% | 68% |
 
 ## Hybrid by question type
 
@@ -32,6 +33,7 @@ Document level:
 | 2 | 100% | 67% | 80% | 100% | 100% | 100% |
 | 3 | 92% | 58% | 80% | 100% | 100% | 100% |
 | 5 | 92% | 42% | 80% | 100% | 100% | 100% |
+| 6 | 100% | 67% | 100% | 100% | 100% | 100% |
 
 Chunk level:
 
@@ -42,6 +44,7 @@ Chunk level:
 | 2 | 75% | 33% | 60% | 20% | 100% | 0% |
 | 3 | 67% | 25% | 60% | 40% | 100% | 0% |
 | 5 | 83% | 25% | 60% | 20% | 100% | 0% |
+| 6 | 75% | 42% | 80% | 80% | 100% | 50% |
 
 ## Notes
 
@@ -65,3 +68,9 @@ Chunk level:
   only in the minutes (q09 Bullard's reasons, q11 debt limit, q23 repo facility), because minutes now get
   3 places instead of 5. Hybrid chunk level stays 52%; doc level drops 88% → 78%. With 1 statement slot:
   doc 82%, chunk 50%. Not kept on its own (`--statement-slots`, default 0); re-tested with the date filter.
+- **4 → 6, date filter** (built on #4, not #5): 14 of the 40 questions name a month and year ("September
+  2024", "July 28-29, 2026"); for those, only chunks from that meeting are searched. A meeting stored
+  under its last day also counts for the previous month if it ends on the 1st (January 31-February 1).
+  If no meeting matches, everything is searched. Hybrid chunk level 52% → 68%: gained q16, q25, q30, q32,
+  q34, q39, lost none. All gains come from the 14 dated questions, so a real user's share of dated
+  questions decides how much this helps. Kept (`--date-filter`, on by default).
