@@ -12,9 +12,9 @@ RAG tool over FOMC statements and minutes (2021 onwards). Portfolio project for 
 ## Layout
 - `src/download.py`: fetches FOMC docs into `data/raw/*.json` (`doc_id`, `kind`, `date`, `url`, `text`)
 - `src/chunk.py`: paragraph-aware chunking with overlap
-- `src/retrieve.py`: BM25, embeddings (bge-small-en-v1.5 + faiss) and hybrid (RRF, BM25 weighted 2x) search; optional date header (off); one `normalize()` for questions and chunks; embeddings cached in `data/index/`
+- `src/retrieve.py`: BM25, embeddings (bge-small-en-v1.5 + faiss) and hybrid (RRF, BM25 weighted 2x) search; top 5 = 2 statement + 3 minutes chunks; a month + year in the question limits search to that meeting; optional date header (off); one `normalize()` for questions and chunks; embeddings cached in `data/index/`
 - `eval/questions.json`: 40 eval questions with their relevant doc_ids, built by `eval/build_questions.py` (doc_ids found by matching each question's evidence pattern in the text)
-- `src/evaluate.py`: top-5 hit rate per method, overall and by question type; writes `eval/results.json`
+- `src/evaluate.py`: top-5 hit rate per method, overall and by question type, at document level and chunk level (a chunk containing the answer); writes `eval/results.json`
 - `eval/experiments.md`: log of retrieval experiments and their hit rates (one change per row)
 - `src/answer.py`: answer step: top-5 hybrid chunks -> Claude Sonnet 5.5, answers only from the chunks with `[kind date]` citations, or "not found in the documents"; key read from `.env` only
 - `tests/test_answer.py`: answer-step tests with a fake LLM (no API calls)
