@@ -18,5 +18,6 @@ Ask questions about Federal Reserve (FOMC) policy statements and minutes, and ge
 pip install -r requirements.txt
 python src/download.py
 python src/retrieve.py "How worried were officials about AI-related debt?" --method hybrid
+python src/evaluate.py      # top-5 hit rate for BM25, embeddings, hybrid on eval/questions.json
 pytest -q
 ```
