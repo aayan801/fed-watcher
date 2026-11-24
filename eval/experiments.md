@@ -1,21 +1,28 @@
 # Retrieval experiments
 
 Top-5 hit rate on the 40 questions in `eval/questions.json` (`python src/evaluate.py`).
-One change per row, each kept only if it helps; every row includes the changes above it.
+One change per row, each kept only if it helps; every row includes the kept changes above it.
+
+- **Document level:** a top-5 chunk comes from a document that answers the question.
+- **Chunk level:** a top-5 chunk actually *contains* the answer (matches the question's `answer_pattern`).
+  This is what the answer step needs: the LLM only sees the chunks. Added at #4; rows 0-3 were re-scored.
 
 Caveat: the questions were also used to pick these changes, so the numbers are optimistic.
 Types with n < 6 (fraction, dash, accent, date) move 20-50 points per question; read them as hints.
 
 ## Overall
 
-| # | Change | BM25 | Embeddings | Hybrid |
-|---|---|---|---|---|
-| 0 | Baseline: all-MiniLM-L6-v2, equal-weight RRF, no header | 82% | 38% | 65% |
-| 1 | Embedding model: BAAI/bge-small-en-v1.5 (512-token limit, query prefix) | 82% | 62% | 82% |
-| 2 | Weighted hybrid: BM25 counts 2x in RRF | 82% | 62% | 88% |
-| 3 | Date header "FOMC minutes, 2024-09-18:" on each chunk (**not kept**: off by default) | 82% | 62% | 82% |
+| # | Change | Doc: BM25 | Doc: Emb | Doc: Hybrid | **Chunk: BM25** | **Chunk: Emb** | **Chunk: Hybrid** |
+|---|---|---|---|---|---|---|---|
+| 0 | Baseline: all-MiniLM-L6-v2, equal-weight RRF, no header | 82% | 38% | 65% | 57% | 25% | 38% |
+| 1 | Embedding model: BAAI/bge-small-en-v1.5 (512-token limit, query prefix) | 82% | 62% | 82% | 57% | 32% | 48% |
+| 2 | Weighted hybrid: BM25 counts 2x in RRF | 82% | 62% | 88% | 57% | 32% | 52% |
+| 3 | Date header "FOMC minutes, 2024-09-18:" on each chunk (**not kept**: off by default) | 82% | 62% | 82% | 60% | 32% | 50% |
+| 4 | Chunk-level eval added (no retrieval change; same as #2) | 82% | 62% | 88% | 57% | 32% | 52% |
 
 ## Hybrid by question type
+
+Document level:
 
 | # | keyword (12) | paraphrase (12) | fraction (5) | dash (5) | accent (4) | date (2) |
 |---|---|---|---|---|---|---|
@@ -23,6 +30,15 @@ Types with n < 6 (fraction, dash, accent, date) move 20-50 points per question; 
 | 1 | 92% | 67% | 80% | 100% | 75% | 100% |
 | 2 | 100% | 67% | 80% | 100% | 100% | 100% |
 | 3 | 92% | 58% | 80% | 100% | 100% | 100% |
+
+Chunk level:
+
+| # | keyword (12) | paraphrase (12) | fraction (5) | dash (5) | accent (4) | date (2) |
+|---|---|---|---|---|---|---|
+| 0 | 50% | 25% | 40% | 0% | 100% | 0% |
+| 1 | 67% | 33% | 60% | 20% | 75% | 0% |
+| 2 | 75% | 33% | 60% | 20% | 100% | 0% |
+| 3 | 67% | 25% | 60% | 40% | 100% | 0% |
 
 ## Notes
 
@@ -37,3 +53,7 @@ Types with n < 6 (fraction, dash, accent, date) move 20-50 points per question; 
   Kept as `--date-header`, off by default. This eval can't really judge it: only 2 date questions, and
   ISO dates ("2024-09-18") don't contain the month names people type ("September 2024").
   Re-test with more date questions and a header like "FOMC minutes, September 18, 2024".
+- **#4, chunk level:** hybrid finds a right *document* for 88% of questions but a chunk *containing the
+  answer* for only 52%. Of its 19 chunk-level misses, 14 had the right document and the wrong chunk.
+  That matches the answer run, where 2 of 4 answerable questions came back "not found in the documents".
+  Dissents and decisions sit in short statements (120 of 2,465 chunks), which minutes chunks crowd out.

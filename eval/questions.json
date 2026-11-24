@@ -9,7 +9,9 @@
    "minutes_20230614",
    "minutes_20230726"
   ],
-  "evidence": "Supervision described the developments, including those at Silicon Valley Bank, Signature Bank, and Credit Suisse. He also described actio"
+  "evidence": "Supervision described the developments, including those at Silicon Valley Bank, Signature Bank, and Credit Suisse. He also described actio",
+  "answer_pattern": "Silicon Valley Bank",
+  "n_answer_chunks": 11
  },
  {
   "id": "q02",
@@ -19,7 +21,9 @@
    "minutes_20211103",
    "statement_20211103"
   ],
-  "evidence": "gin reducing the monthly pace of its net asset purchases by $10 billion for Treasury securities and $5 billion for agency mortgage-backed securities. Beginning later this month, the Committee will"
+  "evidence": "gin reducing the monthly pace of its net asset purchases by $10 billion for Treasury securities and $5 billion for agency mortgage-backed securities. Beginning later this month, the Committee will",
+  "answer_pattern": "\\$10 billion for Treasury securities and \\$5 billion for agency mortgage-backed",
+  "n_answer_chunks": 4
  },
  {
   "id": "q03",
@@ -29,7 +33,9 @@
    "minutes_20251029",
    "statement_20251029"
   ],
-  "evidence": "outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to suppo"
+  "evidence": "outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to suppo",
+  "answer_pattern": "conclude the reduction of its aggregate securities holdings",
+  "n_answer_chunks": 2
  },
  {
   "id": "q04",
@@ -39,7 +45,9 @@
    "minutes_20250319",
    "statement_20250319"
   ],
-  "evidence": "h the monthly redemption cap on Treasury securities reduced from $25 billion to $5 billion and the monthly redemption cap on agency debt and agency mo"
+  "evidence": "h the monthly redemption cap on Treasury securities reduced from $25 billion to $5 billion and the monthly redemption cap on agency debt and agency mo",
+  "answer_pattern": "from \\$25 billion to \\$5 billion",
+  "n_answer_chunks": 3
  },
  {
   "id": "q05",
@@ -49,7 +57,9 @@
    "minutes_20220316",
    "statement_20220316"
   ],
-  "evidence": "global financial market developments. Following the Russian invasion of Ukraine and the subsequent imposition of an array of sanctions, the"
+  "evidence": "global financial market developments. Following the Russian invasion of Ukraine and the subsequent imposition of an array of sanctions, the",
+  "answer_pattern": "invasion of Ukraine",
+  "n_answer_chunks": 16
  },
  {
   "id": "q06",
@@ -58,7 +68,9 @@
   "relevant": [
    "minutes_20211215"
   ],
-  "evidence": "conomy and monetary policy, as well as the emergence of the Omicron variant. Overall, domestic financial conditions tightened m"
+  "evidence": "conomy and monetary policy, as well as the emergence of the Omicron variant. Overall, domestic financial conditions tightened m",
+  "answer_pattern": "Omicron",
+  "n_answer_chunks": 8
  },
  {
   "id": "q07",
@@ -67,7 +79,9 @@
   "relevant": [
    "minutes_20261028"
   ],
-  "evidence": "so highlighted the rapid growth of debt associated with the artificial intelligence (AI) buildout, noting that off-balance-sheet leasing commitments and circ"
+  "evidence": "so highlighted the rapid growth of debt associated with the artificial intelligence (AI) buildout, noting that off-balance-sheet leasing commitments and circ",
+  "answer_pattern": "artificial intelligence \\(AI\\) buildout",
+  "n_answer_chunks": 2
  },
  {
   "id": "q08",
@@ -77,7 +91,9 @@
    "minutes_20220504",
    "statement_20220504"
   ],
-  "evidence": "would be appropriate. In addition, the Committee decided to begin reducing its holdings of Treasury securities and agency debt and agency mortgage-backed securities on June 1, as described in the Plans for Reducing the Size of the Fed"
+  "evidence": "would be appropriate. In addition, the Committee decided to begin reducing its holdings of Treasury securities and agency debt and agency mortgage-backed securities on June 1, as described in the Plans for Reducing the Size of the Fed",
+  "answer_pattern": "begin reducing its holdings of Treasury securities and agency debt and agency mortgage-backed securities on June 1",
+  "n_answer_chunks": 5
  },
  {
   "id": "q09",
@@ -87,7 +103,9 @@
    "minutes_20220316",
    "statement_20220316"
   ],
-  "evidence": "rick Harker, Loretta J. Mester, and Christopher J. Waller. Voting against this action : James Bullard. Patrick Harker voted as an alternate member at this meeti"
+  "evidence": "rick Harker, Loretta J. Mester, and Christopher J. Waller. Voting against this action : James Bullard. Patrick Harker voted as an alternate member at this meeti",
+  "answer_pattern": "Voting against this action ?:? (was )?James Bullard",
+  "n_answer_chunks": 2
  },
  {
   "id": "q10",
@@ -97,7 +115,9 @@
    "minutes_20251210",
    "statement_20251210"
   ],
-  "evidence": "icipants assessed that it was appropriate to begin RMPs and initiate purchases of shorter-term Treasury securities to maintain an ample supply of reserves over time. The dis"
+  "evidence": "icipants assessed that it was appropriate to begin RMPs and initiate purchases of shorter-term Treasury securities to maintain an ample supply of reserves over time. The dis",
+  "answer_pattern": "initiate purchases of shorter-term Treasury securities",
+  "n_answer_chunks": 5
  },
  {
   "id": "q11",
@@ -106,7 +126,9 @@
   "relevant": [
    "minutes_20230614"
   ],
-  "evidence": "re inflation, and reduced downside tail risks following the resolution of the debt limit. The shift in policy expectations contributed significantly"
+  "evidence": "re inflation, and reduced downside tail risks following the resolution of the debt limit. The shift in policy expectations contributed significantly",
+  "answer_pattern": "resolution of the debt limit",
+  "n_answer_chunks": 2
  },
  {
   "id": "q12",
@@ -116,7 +138,9 @@
    "minutes_20260318",
    "statement_20260318"
   ],
-  "evidence": "the economic outlook remained elevated. They noted that the implications of developments in the Middle East for the U.S. economy were uncertain. Members concurred that"
+  "evidence": "the economic outlook remained elevated. They noted that the implications of developments in the Middle East for the U.S. economy were uncertain. Members concurred that",
+  "answer_pattern": "implications of developments in the Middle East",
+  "n_answer_chunks": 4
  },
  {
   "id": "q13",
@@ -126,7 +150,9 @@
    "minutes_20211103",
    "statement_20211103"
   ],
-  "evidence": "ittee's goals since last December, the Committee decided to begin reducing the monthly pace of its net asset purchases by $10 billion for Treasury securities and $5 billion for a"
+  "evidence": "ittee's goals since last December, the Committee decided to begin reducing the monthly pace of its net asset purchases by $10 billion for Treasury securities and $5 billion for a",
+  "answer_pattern": "begin reducing the monthly pace of its net asset purchases",
+  "n_answer_chunks": 4
  },
  {
   "id": "q14",
@@ -136,7 +162,9 @@
    "minutes_20251029",
    "statement_20251029"
   ],
-  "evidence": "outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to suppo"
+  "evidence": "outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to suppo",
+  "answer_pattern": "conclude the reduction of its aggregate securities holdings",
+  "n_answer_chunks": 2
  },
  {
   "id": "q15",
@@ -145,7 +173,9 @@
   "relevant": [
    "minutes_20230322"
   ],
-  "evidence": "elopments in the banking sector were limited. After the two bank closures, issuance of municipal bond and leveraged loans was sluggis"
+  "evidence": "elopments in the banking sector were limited. After the two bank closures, issuance of municipal bond and leveraged loans was sluggis",
+  "answer_pattern": "bank closures",
+  "n_answer_chunks": 2
  },
  {
   "id": "q16",
@@ -155,7 +185,9 @@
    "minutes_20240918",
    "statement_20240918"
   ],
-  "evidence": ". Jefferson, Adriana D. Kugler, and Christopher J. Waller. Voting against this action: Michelle W. Bowman. Governor Bowman preferred at this meeting to lower the ta"
+  "evidence": ". Jefferson, Adriana D. Kugler, and Christopher J. Waller. Voting against this action: Michelle W. Bowman. Governor Bowman preferred at this meeting to lower the ta",
+  "answer_pattern": "Voting against this action ?:? (was )?Michelle W\\. Bowman",
+  "n_answer_chunks": 2
  },
  {
   "id": "q17",
@@ -165,7 +197,9 @@
    "minutes_20241218",
    "statement_20241218"
   ],
-  "evidence": ". Jefferson, Adriana D. Kugler, and Christopher J. Waller. Voting against this action: Beth M. Hammack. President Hammack dissented because she preferred to main"
+  "evidence": ". Jefferson, Adriana D. Kugler, and Christopher J. Waller. Voting against this action: Beth M. Hammack. President Hammack dissented because she preferred to main",
+  "answer_pattern": "Voting against (the|this) action ?:? (was )?Beth M\\. Hammack",
+  "n_answer_chunks": 2
  },
  {
   "id": "q18",
@@ -174,7 +208,9 @@
   "relevant": [
    "minutes_20250129"
   ],
-  "evidence": "mber of Districts had indicated that firms would attempt to pass on to consumers higher input costs arising from potential tariffs. In addition, some participants noted that some market- or"
+  "evidence": "mber of Districts had indicated that firms would attempt to pass on to consumers higher input costs arising from potential tariffs. In addition, some participants noted that some market- or",
+  "answer_pattern": "pass on to consumers higher input costs arising from potential tariffs",
+  "n_answer_chunks": 2
  },
  {
   "id": "q19",
@@ -183,7 +219,9 @@
   "relevant": [
    "minutes_20230920"
   ],
-  "evidence": "so far could persist. Several participants commented that a government shutdown might result in the delayed release of some economic data and that this outcome would make it m"
+  "evidence": "so far could persist. Several participants commented that a government shutdown might result in the delayed release of some economic data and that this outcome would make it m",
+  "answer_pattern": "government shutdown might result in the delayed release",
+  "n_answer_chunks": 2
  },
  {
   "id": "q20",
@@ -192,7 +230,9 @@
   "relevant": [
    "minutes_20211215"
   ],
-  "evidence": "participants agreed that it would likely be appropriate to initiate balance sheet runoff at some point after the first increase in the target range for the federal funds rate. However, pa"
+  "evidence": "participants agreed that it would likely be appropriate to initiate balance sheet runoff at some point after the first increase in the target range for the federal funds rate. However, pa",
+  "answer_pattern": "initiate balance sheet runoff at some point after the first increase",
+  "n_answer_chunks": 1
  },
  {
   "id": "q21",
@@ -212,7 +252,9 @@
    "statement_20210922",
    "statement_20211103"
   ],
-  "evidence": "roduction bottlenecks and supply constraints. Following the transitory increase this year, inflation was projected to run a bit be"
+  "evidence": "roduction bottlenecks and supply constraints. Following the transitory increase this year, inflation was projected to run a bit be",
+  "answer_pattern": "transitory",
+  "n_answer_chunks": 47
  },
  {
   "id": "q22",
@@ -221,7 +263,9 @@
   "relevant": [
    "minutes_20240501"
   ],
-  "evidence": "ductivity growth might be sustained by the incorporation of technologies such as artificial intelligence into existing business operations or by high rates of new business formation in the technolog"
+  "evidence": "ductivity growth might be sustained by the incorporation of technologies such as artificial intelligence into existing business operations or by high rates of new business formation in the technolog",
+  "answer_pattern": "technologies such as artificial intelligence into existing business operations",
+  "n_answer_chunks": 2
  },
  {
   "id": "q23",
@@ -230,7 +274,9 @@
   "relevant": [
    "minutes_20210728"
   ],
-  "evidence": "ates emerged, it may become appropriate to lift the limit. Establishment of Standing Repurchase Agreement Facilities Finally, the manager summarized the proposed terms for the"
+  "evidence": "ates emerged, it may become appropriate to lift the limit. Establishment of Standing Repurchase Agreement Facilities Finally, the manager summarized the proposed terms for the",
+  "answer_pattern": "Establishment of Standing Repurchase Agreement Facilities",
+  "n_answer_chunks": 1
  },
  {
   "id": "q24",
@@ -239,7 +285,9 @@
   "relevant": [
    "minutes_20210127"
   ],
-  "evidence": "Statement on Longer-Run Goals and Monetary Policy Strategy, all participants supported the statement as written, and the Committee voted unanimously to reaffirm without re"
+  "evidence": "Statement on Longer-Run Goals and Monetary Policy Strategy, all participants supported the statement as written, and the Committee voted unanimously to reaffirm without re",
+  "answer_pattern": "all participants supported the statement as written",
+  "n_answer_chunks": 2
  },
  {
   "id": "q25",
@@ -249,7 +297,9 @@
    "minutes_20231101",
    "statement_20231101"
   ],
-  "evidence": "to maintain the target range for the federal funds rate at 5¼ to 5½ percent at this meeting. Participants judged that maintaini"
+  "evidence": "to maintain the target range for the federal funds rate at 5¼ to 5½ percent at this meeting. Participants judged that maintaini",
+  "answer_pattern": "5¼ to 5½|5-1/4 to 5-1/2",
+  "n_answer_chunks": 7
  },
  {
   "id": "q26",
@@ -259,7 +309,9 @@
    "minutes_20241218",
    "statement_20241218"
   ],
-  "evidence": "rget range for the federal funds rate by 25 basis points to 4¼ to 4½ percent. They assessed that such a further lowering of the"
+  "evidence": "rget range for the federal funds rate by 25 basis points to 4¼ to 4½ percent. They assessed that such a further lowering of the",
+  "answer_pattern": "4¼ to 4½|4-1/4 to 4-1/2",
+  "n_answer_chunks": 7
  },
  {
   "id": "q27",
@@ -269,7 +321,9 @@
    "minutes_20260916",
    "statement_20260916"
   ],
-  "evidence": "ement for release by a 12–0 vote: The Committee decided to raise the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent, in support of the Federal Reserve's dual mandate. The Comm"
+  "evidence": "ement for release by a 12–0 vote: The Committee decided to raise the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent, in support of the Federal Reserve's dual mandate. The Comm",
+  "answer_pattern": "raise the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent",
+  "n_answer_chunks": 2
  },
  {
   "id": "q28",
@@ -279,7 +333,9 @@
    "minutes_20230614",
    "statement_20230614"
   ],
-  "evidence": "ost all participants judged it appropriate or acceptable to maintain the target range for the federal funds rate at 5 to 5-1/4 percent at this meeting. Most of these participants observed that l"
+  "evidence": "ost all participants judged it appropriate or acceptable to maintain the target range for the federal funds rate at 5 to 5-1/4 percent at this meeting. Most of these participants observed that l",
+  "answer_pattern": "maintain the target range for the federal funds rate at 5 to 5-1/4 percent",
+  "n_answer_chunks": 4
  },
  {
   "id": "q29",
@@ -289,7 +345,9 @@
    "minutes_20220615",
    "statement_20220615"
   ],
-  "evidence": "loyment and price-stability goals, the Committee decided to raise the target range for the federal funds rate to 1-1/2 to 1-3/4 percent and anticipated that ongoing increases in the target range"
+  "evidence": "loyment and price-stability goals, the Committee decided to raise the target range for the federal funds rate to 1-1/2 to 1-3/4 percent and anticipated that ongoing increases in the target range",
+  "answer_pattern": "raise the target range for the federal funds rate to 1-1/2 to 1-3/4 percent",
+  "n_answer_chunks": 3
  },
  {
   "id": "q30",
@@ -299,7 +357,9 @@
    "minutes_20260729",
    "statement_20260729"
   ],
-  "evidence": "Committee approved the following statement for release by a 9 – 3 vote: The Committee decided to maintain the target range for th"
+  "evidence": "Committee approved the following statement for release by a 9 – 3 vote: The Committee decided to maintain the target range for th",
+  "answer_pattern": "9 ?– ?3 vote",
+  "n_answer_chunks": 2
  },
  {
   "id": "q31",
@@ -308,7 +368,9 @@
   "relevant": [
    "statement_20261028"
   ],
-  "evidence": "Committee approved the following statement for release by a 10 – 2 vote: The Committee decided to maintain the target range for th"
+  "evidence": "Committee approved the following statement for release by a 10 – 2 vote: The Committee decided to maintain the target range for th",
+  "answer_pattern": "10 ?– ?2 vote",
+  "n_answer_chunks": 1
  },
  {
   "id": "q32",
@@ -318,7 +380,9 @@
    "minutes_20260729",
    "statement_20260729"
   ],
-  "evidence": "the meeting's own statement and minutes"
+  "evidence": "the meeting's own statement and minutes",
+  "answer_pattern": "(decided|agreed) to maintain the target range for the federal funds rate at 3-1/2 to 3-3/4 percent",
+  "n_answer_chunks": 4
  },
  {
   "id": "q33",
@@ -328,7 +392,9 @@
    "minutes_20260916",
    "statement_20260916"
   ],
-  "evidence": "the meeting's own statement and minutes"
+  "evidence": "the meeting's own statement and minutes",
+  "answer_pattern": "(decided|agreed) to raise the target range for the federal funds rate (by )?1/4 percentage point to 3-3/4 to 4 percent",
+  "n_answer_chunks": 3
  },
  {
   "id": "q34",
@@ -338,7 +404,9 @@
    "minutes_20230503",
    "statement_20230503"
   ],
-  "evidence": "the meeting's own statement and minutes"
+  "evidence": "the meeting's own statement and minutes",
+  "answer_pattern": "(decided|agreed) to raise the target range for the federal funds rate to 5 to 5-1/4 percent",
+  "n_answer_chunks": 3
  },
  {
   "id": "q35",
@@ -347,7 +415,9 @@
   "relevant": [
    "minutes_20250507"
   ],
-  "evidence": "licy Advisor II, Federal Reserve Bank of St. Louis Enrique Martínez García, 6 Assistant Vice President, Federal Reserve Bank of Dallas"
+  "evidence": "licy Advisor II, Federal Reserve Bank of St. Louis Enrique Martínez García, 6 Assistant Vice President, Federal Reserve Bank of Dallas",
+  "answer_pattern": "Martínez García",
+  "n_answer_chunks": 1
  },
  {
   "id": "q36",
@@ -361,7 +431,9 @@
    "minutes_20260617",
    "minutes_20260916"
   ],
-  "evidence": ", Joseph W. Gruber, Anna Paulson, William Wascher, and Egon Zakrajšek, Associate Economists Roberto Perli, Manager, System Open"
+  "evidence": ", Joseph W. Gruber, Anna Paulson, William Wascher, and Egon Zakrajšek, Associate Economists Roberto Perli, Manager, System Open",
+  "answer_pattern": "Zakrajšek",
+  "n_answer_chunks": 8
  },
  {
   "id": "q37",
@@ -377,7 +449,9 @@
    "minutes_20250319",
    "minutes_20260128"
   ],
-  "evidence": "mation Manager, Division of Monetary Affairs, Board Isabel Cairó, Senior Economist, Division of Monetary Affairs, Board Jam"
+  "evidence": "mation Manager, Division of Monetary Affairs, Board Isabel Cairó, Senior Economist, Division of Monetary Affairs, Board Jam",
+  "answer_pattern": "Cairó",
+  "n_answer_chunks": 10
  },
  {
   "id": "q38",
@@ -390,7 +464,9 @@
    "minutes_20250618",
    "minutes_20251210"
   ],
-  "evidence": "omist, Division of Research and Statistics, Board Giovanni Nicolò, Arsenios Skaperdas, and Hiroatsu Tanaka, Senior Economists"
+  "evidence": "omist, Division of Research and Statistics, Board Giovanni Nicolò, Arsenios Skaperdas, and Hiroatsu Tanaka, Senior Economists",
+  "answer_pattern": "Nicolò",
+  "n_answer_chunks": 6
  },
  {
   "id": "q39",
@@ -400,7 +476,9 @@
    "minutes_20261028",
    "statement_20261028"
   ],
-  "evidence": "the meeting's own statement and minutes"
+  "evidence": "the meeting's own statement and minutes",
+  "answer_pattern": "Voting against (the monetary policy action|this action) ?:? (were )?Lisa D\\. Cook and Beth M\\. Hammack",
+  "n_answer_chunks": 2
  },
  {
   "id": "q40",
@@ -410,6 +488,8 @@
    "minutes_20210127",
    "statement_20210127"
   ],
-  "evidence": "the meeting's own statement and minutes"
+  "evidence": "the meeting's own statement and minutes",
+  "answer_pattern": "(decided|agreed) to (keep|maintain) the target range for the federal funds rate at 0 to 1/4 percent",
+  "n_answer_chunks": 3
  }
 ]

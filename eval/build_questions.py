@@ -5,6 +5,9 @@
 Relevant docs are not picked by hand: a question's relevant docs are the docs whose text matches its
 `check` pattern (optionally limited to some meeting dates). Date-only questions use the meeting's own
 statement and minutes. `evidence` in the output shows the matched passage, so a person can verify it.
+
+`answer_pattern` marks which CHUNKS answer the question: a chunk of a relevant doc whose text matches it.
+For most questions it is the same as `check`; date-only questions get one from ANSWER_PATTERNS.
 """
 import glob
 import json
@@ -70,6 +73,22 @@ Q = [
     ("date", "What did the FOMC decide at its January 2021 meeting?", None, ["20210127"]),
 ]
 
+# Questions without a `check` (relevant docs = the meeting's docs) still need a pattern for the passage that
+# answers them, so the chunk-level eval can tell which CHUNKS of those docs contain the answer.
+DECISION = r"(decided|agreed) to {verb} the target range for the federal funds rate {rest}"
+ANSWER_PATTERNS = {
+    "q32": DECISION.format(verb="maintain", rest="at 3-1/2 to 3-3/4 percent"),
+    "q33": DECISION.format(verb="raise", rest=r"(by )?1/4 percentage point to 3-3/4 to 4 percent"),
+    "q34": DECISION.format(verb="raise", rest="to 5 to 5-1/4 percent"),
+    "q39": r"Voting against (the monetary policy action|this action) ?:? (were )?Lisa D\. Cook and Beth M\. Hammack",
+    "q40": DECISION.format(verb="(keep|maintain)", rest="at 0 to 1/4 percent"),
+}
+
+sys.path.insert(0, str(ROOT))
+from src.chunk import chunk_all  # noqa: E402  (to check every question has an answering chunk)
+
+CHUNKS = chunk_all([{"doc_id": k, "kind": k.split("_")[0], "date": "", "url": "", "text": t} for k, t in D.items()])
+
 out, problems = [], []
 for i, (kind, q, check, dates) in enumerate(Q, 1):
     ids = [k for k in D if dates is None or any(k[-8:].startswith(d) for d in dates)]
@@ -83,7 +102,15 @@ for i, (kind, q, check, dates) in enumerate(Q, 1):
         problems.append(f"q{i}: no relevant docs")
     if len(rel) > 12:
         problems.append(f"q{i}: {len(rel)} relevant docs (too easy?)")
-    out.append({"id": f"q{i:02d}", "type": kind, "question": q, "relevant": rel, "evidence": ev})
+    qid = f"q{i:02d}"
+    pattern = check or ANSWER_PATTERNS.get(qid)
+    if pattern is None:
+        problems.append(f"{qid}: no answer pattern")
+    n_chunks = sum(1 for c in CHUNKS if c["doc_id"] in rel and re.search(pattern or "$^", c["text"]))
+    if n_chunks == 0:
+        problems.append(f"{qid}: no chunk of the relevant docs matches its answer pattern")
+    out.append({"id": qid, "type": kind, "question": q, "relevant": rel, "evidence": ev,
+                "answer_pattern": pattern, "n_answer_chunks": n_chunks})
 
 assert len(out) == 40, len(out)
 (ROOT / "eval" / "questions.json").write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")

@@ -5,7 +5,9 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.evaluate import evaluate, format_tables, hit_rate, is_hit
+import re
+
+from src.evaluate import evaluate, format_tables, hit_rate, is_chunk_hit, is_hit
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -45,6 +47,31 @@ def test_evaluate_overall_and_by_type():
     assert "paraphrase" in format_tables(res)
 
 
+def test_chunk_hit_needs_the_answer_text_not_just_the_document():
+    right_doc_wrong_chunk = [{"doc_id": "d1", "text": "attendance list"}]
+    right_chunk = [{"doc_id": "d1", "text": "voted against: Bullard"}]
+    wrong_doc_same_words = [{"doc_id": "d9", "text": "voted against: Bullard"}]
+    assert is_hit(["d1"], ["d1"]) and not is_chunk_hit(right_doc_wrong_chunk, ["d1"], "against: Bullard")
+    assert is_chunk_hit(right_chunk, ["d1"], "against: Bullard")
+    assert not is_chunk_hit(wrong_doc_same_words, ["d1"], "against: Bullard")
+    assert not is_chunk_hit(right_chunk, ["d1"], None)
+
+
+class TextRetriever:
+    def search(self, question, method, k):
+        return [{"doc_id": "d1", "chunk_id": "d1#0", "text": "intro"},
+                {"doc_id": "d1", "chunk_id": "d1#1", "text": "the answer is here"}][:k]
+
+
+def test_evaluate_reports_chunk_level_separately():
+    qs = [{"id": "1", "type": "keyword", "question": "q", "relevant": ["d1"], "answer_pattern": "answer is"}]
+    one = evaluate(TextRetriever(), qs, methods=("hybrid",), k=1)
+    two = evaluate(TextRetriever(), qs, methods=("hybrid",), k=2)
+    assert one["overall"]["hybrid"] == 1.0 and one["overall_chunk"]["hybrid"] == 0.0
+    assert two["overall_chunk"]["hybrid"] == 1.0
+    assert "Chunk level" in format_tables(one, methods=("hybrid",))
+
+
 def test_k_limits_what_counts():
     qs = [{"id": "1", "type": "keyword", "question": "q1", "relevant": ["d1"]}]
     assert evaluate(FakeRetriever(), qs, k=1)["overall"]["hybrid"] == 0.0  # d1 is 2nd
@@ -58,3 +85,5 @@ def test_question_file_is_well_formed():
     types = {"keyword", "paraphrase", "fraction", "dash", "accent", "date"}
     for q in qs:
         assert q["type"] in types and q["question"].strip() and q["relevant"], q["id"]
+        re.compile(q["answer_pattern"])  # every question can be scored at chunk level
+        assert q["n_answer_chunks"] >= 1, q["id"]
