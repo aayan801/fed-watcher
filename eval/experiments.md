@@ -21,6 +21,7 @@ Types with n < 6 (fraction, dash, accent, date) move 20-50 points per question; 
 | 4 | Chunk-level eval added (no retrieval change; same as #2) | 82% | 62% | 88% | 57% | 32% | 52% |
 | 5 | Split: top 2 statements + top 3 minutes (**not kept**: off by default) | 80% | 57% | 78% | 62% | 38% | 52% |
 | 6 | Date filter: a question naming a month and year searches only that meeting (on #4) | 85% | 72% | 90% | 68% | 42% | 68% |
+| 7 | Date filter + 2 statements & 3 minutes (**current default**) | 82% | 72% | 80% | 80% | 62% | **78%** |
 
 ## Hybrid by question type
 
@@ -34,6 +35,7 @@ Document level:
 | 3 | 92% | 58% | 80% | 100% | 100% | 100% |
 | 5 | 92% | 42% | 80% | 100% | 100% | 100% |
 | 6 | 100% | 67% | 100% | 100% | 100% | 100% |
+| 7 | 92% | 42% | 100% | 100% | 100% | 100% |
 
 Chunk level:
 
@@ -45,6 +47,7 @@ Chunk level:
 | 3 | 67% | 25% | 60% | 40% | 100% | 0% |
 | 5 | 83% | 25% | 60% | 20% | 100% | 0% |
 | 6 | 75% | 42% | 80% | 80% | 100% | 50% |
+| 7 | 92% | 42% | 80% | 100% | 100% | 100% |
 
 ## Notes
 
@@ -74,3 +77,9 @@ Chunk level:
   If no meeting matches, everything is searched. Hybrid chunk level 52% → 68%: gained q16, q25, q30, q32,
   q34, q39, lost none. All gains come from the 14 dated questions, so a real user's share of dated
   questions decides how much this helps. Kept (`--date-filter`, on by default).
+- **6 → 7, date filter + statement slots:** inside one meeting, reserving 2 places for its statement no
+  longer pushes out the answer, so the split now pays off: hybrid chunk level 68% → 78% (vs #4: gained 12
+  questions, lost q11 debt limit and q23 repo facility, both answered only in minutes and naming no
+  month). With 1 statement slot: chunk 75%, doc 85%. Doc level drops 90% → 80%, but chunk level is what
+  the answer step needs, so this is the new default. Its weak spot: undated questions answered only in
+  minutes lose 2 of their 5 places. Paraphrase (42%) is still the weakest type.

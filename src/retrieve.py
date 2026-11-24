@@ -40,7 +40,7 @@ METHODS = ("bm25", "embeddings", "hybrid")
 RRF_K = 60  # standard constant from the original RRF paper; damps the gap between rank 1 and rank 2
 BM25_WEIGHT = 2.0  # hybrid weight of BM25 relative to embeddings; chosen in eval/experiments.md (#2)
 DATE_HEADER = False  # put "FOMC <kind>, <date>:" in front of each chunk for search; see experiments.md (#3)
-STATEMENT_SLOTS = 0  # top-k = this many best statement chunks + the rest from minutes; see experiments.md (#5)
+STATEMENT_SLOTS = 2  # top-k = this many best statement chunks + the rest from minutes; see experiments.md (#5, #7)
 DATE_FILTER = True  # if the question names a month and year, search only that meeting; see experiments.md (#6)
 
 Encoder = Callable[[list[str]], np.ndarray]
@@ -146,6 +146,7 @@ class Retriever:
         self.query_prefix = query_prefix
         self._cache_dir = cache_dir
         self._index: faiss.Index | None = None  # built on first embeddings search
+        self._last_query: tuple[str, np.ndarray] | None = None  # (question, its vector)
 
     # ---- embeddings ---------------------------------------------------------------------------
     def _encode(self, texts: list[str], is_query: bool = False) -> np.ndarray:
@@ -188,7 +189,10 @@ class Retriever:
         index = self._faiss_index()
         # with a filter, rank everything and filter afterwards: exact search over 2,465 vectors is cheap
         depth = index.ntotal if allowed is not None else min(n, index.ntotal)
-        _, ids = index.search(self._encode([question], is_query=True), depth)
+        # one search can rank several subsets (statements, minutes): encode the question only once
+        if self._last_query is None or self._last_query[0] != question:
+            self._last_query = (question, self._encode([question], is_query=True))
+        _, ids = index.search(self._last_query[1], depth)
         # faiss pads with -1 when it has fewer results
         return [int(i) for i in ids[0] if i >= 0 and (allowed is None or int(i) in allowed)][:n]
 
